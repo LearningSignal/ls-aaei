@@ -1,0 +1,193 @@
+enum YN {
+    Y
+    N
+}
+
+# enum LmsType {
+#     CANVAS
+#     MOODLE
+#     BLACKBOARD
+# }
+
+# ## 자이닉스에 확인 필요!!
+# enum EnrollmentType {
+#     ADMIN
+#     STUDENT
+#     TEACHER
+# }
+
+type Account
+    @model
+    @key(name: "byLmsAccountByLmsType", fields: ["lmsAccountID", "lmsType"]) {
+    id: ID!
+    lmsAccountID: ID!
+    lmsType: String!
+    name: String!
+    status: String!
+    courses: [AccountCourse] @connection(keyName: "byAccount", fields: ["id"])
+    coursesByCourseName: [AccountCourse]
+        @connection(keyName: "byAccountByCourseName", fields: ["id"])
+    coursesByTerm: [AccountCourse]
+        @connection(keyName: "byAccountByTerm", fields: ["id"])
+    coursesByTermByCourseName: [AccountCourse]
+        @connection(keyName: "byAccountByTermByCourseName", fields: ["id"])
+}
+
+type AccountCourse
+    @model
+    @key(name: "byAccount", fields: ["accountID", "id"])
+    @key(name: "byAccountByCourseName", fields: ["accountID", "courseName"])
+    @key(name: "byAccountByTerm", fields: ["accountID", "term"])
+    @key(
+        name: "byAccountByTermByCourseName"
+        fields: ["accountID", "term", "courseName"]
+    )
+    @key(name: "byCourse", fields: ["courseID", "id"]) {
+    id: ID!
+    accountID: ID!
+    courseID: ID!
+    lmsType: String!
+    lmsCourseAccountAssociationID: ID!
+    lmsCourseID: ID!
+    lmsAccountID: ID!
+    courseName: String!
+    term: String!
+    account: Account! @connection(fields: ["accountID"])
+    course: Course! @connection(fields: ["courseID"])
+}
+
+type Course
+    @model
+    @key(name: "byLmsCourseByLmsType", fields: ["lmsCourseID", "lmsType"]) {
+    id: ID!
+    lmsCourseID: ID!
+    lmsType: String!
+    name: String!
+    code: String! # 학수번호. 수번번호를 추가해야 할 수도 있음 (수업번호)
+    term: String!
+    status: String!
+    accounts: [AccountCourse] @connection(keyName: "byCourse", fields: ["id"])
+    enrollments: [Enrollment] @connection(keyName: "byCourse", fields: ["id"])
+    attributes: [Attribute] @connection(keyName: "byCourse", fields: ["id"])
+    interventions: [Intervention]
+        @connection(keyName: "byCourse", fields: ["id"])
+    historys: [History] @connection(keyName: "byCourse", fields: ["id"])
+    historysByDate: [History]
+        @connection(keyName: "byCourseByDate", fields: ["id"])
+}
+
+type Attribute @model @key(name: "byCourse", fields: ["courseID", "id"]) {
+    id: ID!
+    courseID: ID!
+    status: String!
+    type: String! # 출석, 과제, 퀴즈, 토론, 자료, ...
+    name: String!
+    assignmentYN: YN!
+    maxScore: Float
+    datas: [Data] @connection(keyName: "byAttribute", fields: ["id"])
+}
+
+type Data
+    @model
+    @key(name: "byAttribute", fields: ["attributeID", "id"])
+    @key(name: "byEnrollment", fields: ["enrollmentID", "id"]) {
+    id: ID!
+    attributeID: ID!
+    enrollmentID: ID!
+    status: String! # submitted or unsubmitted
+    score: Float
+    completed_yn: YN!
+    attribute: Attribute! @connection(fields: ["attributeID"])
+    enrollment: Enrollment! @connection(fields: ["enrollmentID"])
+}
+
+type Enrollment
+    @model
+    @key(
+        name: "byLmsEnrollmentByLmsType"
+        fields: ["lmsEnrollmentId", "lmsType"]
+    )
+    @key(name: "byCourse", fields: ["courseID", "id"])
+    @key(name: "byUser", fields: ["userID", "id"])
+    @key(name: "byUserByCourse", fields: ["userID", "courseID"]) {
+    id: ID!
+    userID: ID!
+    courseID: ID!
+    lmsEnrollmentId: ID!
+    lmsType: String!
+    type: String!
+    lastActivityAt: String
+    riskProbability: Float
+    status: String!
+    datas: [Data] @connection(keyName: "byEnrollment", fields: ["id"])
+}
+
+type User
+    @model
+    @key(name: "byLmsUserByLmsType", fields: ["lmsUserID", "lmsType"]) {
+    id: ID!
+    lmsUserID: ID!
+    lmsType: String!
+    name: String!
+    email: String
+    phoneNumber: String
+    snsType: String
+    snsID: String
+    lastLoggedOut: String
+    status: String!
+    enrollmentByCourse: [Enrollment]
+        @connection(keyName: "byUserByCourse", fields: ["id"])
+    enrollments: [Enrollment] @connection(keyName: "byUser", fields: ["id"])
+    interventions: [Intervention] @connection(keyName: "byUser", fields: ["id"])
+    senderHistorys: [History]
+        @connection(keyName: "bySenderUserByDate", fields: ["id"])
+    recipientHistorys: [History]
+        @connection(keyName: "byRecipientUserByDate", fields: ["id"])
+}
+
+type Intervention
+    @model
+    @key(name: "byUser", fields: ["creatorUserID", "id"])
+    @key(name: "byCourse", fields: ["courseID", "id"]) {
+    id: ID!
+    courseID: ID!
+    creatorUserID: ID!
+    name: String!
+    description: String
+    condition: String # JSON 데이터
+    content: String!
+    emailYN: YN!
+    lmsYN: YN!
+    smsYN: YN!
+    snsYN: YN!
+    sendTime: String
+    reserveTime: String
+    cronTime: String
+    status: String! # delete/active/inactive
+    historys: [History]
+        @connection(keyName: "byInterventionByDate", fields: ["id"])
+}
+
+type History
+    @model
+    @key(name: "byCourse", fields: ["courseID", "id"])
+    @key(name: "byCourseByDate", fields: ["courseID", "date"])
+    @key(
+        name: "byCourseByInterventionByDate"
+        fields: ["courseID", "interventionID", "date"]
+    )
+    @key(name: "byInterventionByDate", fields: ["courseID", "date"])
+    @key(name: "bySenderUserByDate", fields: ["senderUserID", "date"])
+    @key(name: "byRecipientUserByDate", fields: ["recipientUserID", "date"]) {
+    id: ID!
+    courseID: ID!
+    interventionID: ID!
+    senderUserID: ID!
+    recipientUserID: ID!
+    emailYN: YN!
+    lmsYN: YN!
+    smsYN: YN!
+    snsYN: YN!
+    feed: String!
+    date: String!
+}
