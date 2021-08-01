@@ -1,18 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import "react-app-polyfill/ie11"; // For IE 11 support
+import "react-app-polyfill/stable";
+import "core-js";
+import "./polyfill";
+
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+
+import { icons } from "./assets/icons";
+
+import { Provider } from "react-redux";
+import store from "./store";
 
 import Amplify from "aws-amplify";
 import config from "./aws-exports";
 Amplify.configure(config);
 
+React.icons = icons;
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -12,5 +12,12 @@
         }
       }
     }
+  },
+  "function": {
+    "lti1p0auth": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
   }
 }
