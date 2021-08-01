@@ -1,0 +1,385 @@
+import React, { useState, useEffect } from "react";
+import { Link, useHistory, useLocation } from "react-router-dom";
+import {
+    CBadge,
+    CCard,
+    CCardBody,
+    CCardHeader,
+    CCol,
+    CDataTable,
+    CRow,
+    CButton,
+    CModal,
+    CModalHeader,
+    CModalTitle,
+    CModalBody,
+    CModalFooter,
+    CCardFooter,
+} from "@coreui/react";
+
+import { CChartLine, CChartRadar } from "@coreui/react-chartjs";
+
+import studentsData from "./StudentsData";
+import studentInterventionsData from "./StudentInterventionsData";
+
+const getBadge = (status) => {
+    switch (status) {
+        case "Active":
+            return "success";
+        case "Inactive":
+            return "secondary";
+        case "Pending":
+            return "warning";
+        case "Banned":
+            return "danger";
+        default:
+            return "primary";
+    }
+};
+
+const LearningAnalytics = () => {
+    // const history = useHistory();
+    const queryPage = useLocation().search.match(/page=([0-9]+)/, "");
+    const currentPage = Number(queryPage && queryPage[1] ? queryPage[1] : 1);
+    const [page, setPage] = useState(currentPage);
+
+    const [modal, setModal] = useState(false);
+    const [modalTitle, setModalTitle] = useState("");
+
+    function viewModal(item) {
+        setModal(true);
+        setModalTitle(item.name);
+        console.log(item);
+    }
+
+    useEffect(() => {
+        currentPage !== page && setPage(currentPage);
+    }, [currentPage, page]);
+
+    return (
+        <CRow>
+            <CCol xl={12}>
+                <CCard>
+                    <CCardHeader>
+                        학생 목록
+                        <small className="text-muted"> student list</small>
+                    </CCardHeader>
+                    <CCardBody>
+                        <CDataTable
+                            items={studentsData}
+                            sorter="{{ external: true, resetable: true }}"
+                            fields={[
+                                {
+                                    key: "name",
+                                    label: "이름",
+                                    sorter: true,
+                                    _classes: "font-weight-bold",
+                                },
+                                {
+                                    key: "attendance",
+                                    label: "출석",
+                                    sorter: true,
+                                },
+                                {
+                                    key: "assignment",
+                                    label: "과제",
+                                    sorter: true,
+                                },
+                                {
+                                    key: "quiz",
+                                    label: "퀴즈",
+                                    sorter: true,
+                                },
+                                {
+                                    key: "exam",
+                                    label: "시험",
+                                    sorter: true,
+                                },
+                                {
+                                    key: "discussion",
+                                    label: "토론",
+                                    sorter: true,
+                                },
+                                {
+                                    key: "material",
+                                    label: "강의자료",
+                                    sorter: true,
+                                },
+                                {
+                                    key: "lastActivityAt",
+                                    label: "마지막 활동일",
+                                    sorter: true,
+                                },
+                            ]}
+                            hover
+                            // clickableRows
+                            // onRowClick={(item) => viewModal(item)}
+                            scopedSlots={{
+                                name: (item) => (
+                                    <td onClick={() => viewModal(item)}>
+                                        <Link to="#">{item.name}</Link>
+                                    </td>
+                                ),
+                            }}
+                        />
+                        <CModal
+                            show={modal}
+                            onClose={() => setModal(!modal)}
+                            size="lg"
+                        >
+                            <CModalHeader closeButton>
+                                <CModalTitle>{modalTitle}</CModalTitle>{" "}
+                            </CModalHeader>
+                            <CCard>
+                                <CModalBody>
+                                    <CButton className="mr-1" color="secondary">
+                                        출석{" "}
+                                        <CBadge
+                                            color="primary"
+                                            shape="pill"
+                                            style={{ position: "static" }}
+                                        >
+                                            8/9
+                                        </CBadge>
+                                    </CButton>
+                                    <CButton className="mr-1" color="primary">
+                                        출석
+                                    </CButton>
+                                    <CButton className="mr-1" color="primary">
+                                        출석
+                                    </CButton>
+                                    <CButton className="mr-1" color="primary">
+                                        출석
+                                    </CButton>
+                                    <CButton className="mr-1" color="primary">
+                                        출석
+                                    </CButton>
+                                    <CButton className="mr-1" color="primary">
+                                        출석
+                                    </CButton>
+                                    <CButton className="mr-1" color="primary">
+                                        출석
+                                    </CButton>
+                                    <CButton className="mr-1" color="danger">
+                                        결석
+                                    </CButton>
+                                    <CButton className="mr-1" color="primary">
+                                        출석
+                                    </CButton>
+                                    <CButton className="mr-1" color="primary">
+                                        출석
+                                    </CButton>
+                                    <CButton className="mr-1" color="primary">
+                                        출석
+                                    </CButton>
+                                </CModalBody>
+                            </CCard>
+                            <CModalBody>
+                                <CCard>
+                                    <CCardHeader>점수 분포</CCardHeader>
+                                    <CCardBody>
+                                        <CChartRadar
+                                            datasets={[
+                                                {
+                                                    label: "총 획득 점수",
+                                                    backgroundColor:
+                                                        "rgba(255,99,132,0.2)",
+                                                    borderColor:
+                                                        "rgba(255,99,132,1)",
+                                                    pointBackgroundColor:
+                                                        "rgba(255,99,132,1)",
+                                                    pointBorderColor: "#fff",
+                                                    pointHoverBackgroundColor:
+                                                        "#fff",
+                                                    pointHoverBorderColor:
+                                                        "rgba(255,99,132,1)",
+                                                    tooltipLabelColor:
+                                                        "rgba(255,99,132,1)",
+                                                    data: [
+                                                        (8 / 9) * 100,
+                                                        0.85 * 100,
+                                                        0.6 * 100,
+                                                        0.91 * 100,
+                                                        0.3 * 100,
+                                                        0.75 * 100,
+                                                    ],
+                                                },
+                                                {
+                                                    label: "평균 점수",
+                                                    backgroundColor:
+                                                        "rgba(179,181,198,0.2)",
+                                                    borderColor:
+                                                        "rgba(179,181,198,1)",
+                                                    pointBackgroundColor:
+                                                        "rgba(179,181,198,1)",
+                                                    pointBorderColor: "#fff",
+                                                    pointHoverBackgroundColor:
+                                                        "#fff",
+                                                    pointHoverBorderColor:
+                                                        "rgba(179,181,198,1)",
+                                                    tooltipLabelColor:
+                                                        "rgba(179,181,198,1)",
+                                                    data: [
+                                                        (7 / 9) * 100,
+                                                        (4 / 6) * 100,
+                                                        (3 / 4) * 100,
+                                                        (1 / 1) * 100,
+                                                        (2 / 3) * 100,
+                                                        (6 / 9) * 100,
+                                                    ],
+                                                },
+                                            ]}
+                                            options={{
+                                                aspectRatio: 1.5,
+                                                tooltips: {
+                                                    enabled: true,
+                                                },
+                                                scales: {
+                                                    angleLines: {
+                                                        display: false,
+                                                    },
+                                                    r: {
+                                                        min: 0,
+                                                        max: 100,
+                                                    },
+                                                },
+                                            }}
+                                            labels={[
+                                                "출석",
+                                                "과제",
+                                                "퀴즈",
+                                                "시험",
+                                                "토론",
+                                                "강의자료",
+                                            ]}
+                                        />
+                                    </CCardBody>
+                                </CCard>
+                                <CCard>
+                                    <CCardHeader>과제</CCardHeader>
+                                    <CCardBody>
+                                        <CChartLine
+                                            datasets={[
+                                                {
+                                                    label: "획득 점수",
+                                                    backgroundColor:
+                                                        "rgb(0,216,255,0.9)",
+                                                    data: [
+                                                        80, 90, 100, 70, 0, 70,
+                                                    ],
+                                                },
+                                                {
+                                                    label: "평균 점수",
+                                                    // backgroundColor:
+                                                    //     "rgb(0,216,255,0.9)",
+                                                    data: [
+                                                        39, 80, 40, 35, 40, 20,
+                                                    ],
+                                                },
+                                            ]}
+                                            options={{
+                                                tooltips: {
+                                                    enabled: true,
+                                                },
+                                            }}
+                                            labels="indexes"
+                                        />
+                                    </CCardBody>
+                                </CCard>
+                                <CCard>
+                                    <CCardHeader>퀴즈</CCardHeader>
+                                    <CCardBody>
+                                        <CChartLine
+                                            datasets={[
+                                                {
+                                                    label: "획득 점수",
+                                                    backgroundColor:
+                                                        "rgb(0,216,255,0.9)",
+                                                    data: [80, 0, 50, 0],
+                                                },
+                                                {
+                                                    label: "평균 점수",
+                                                    data: [40, 35, 40, 20],
+                                                },
+                                            ]}
+                                            options={{
+                                                tooltips: {
+                                                    enabled: true,
+                                                },
+                                            }}
+                                            labels="indexes"
+                                        />
+                                    </CCardBody>
+                                </CCard>
+                                <CCard>
+                                    <CCardHeader>학습개입 내역</CCardHeader>
+                                    <CCardBody>
+                                        <CDataTable
+                                            items={studentInterventionsData}
+                                            sorter="{{ external: true, resetable: true }}"
+                                            fields={[
+                                                {
+                                                    key: "interventionName",
+                                                    label: "학습개입 이름",
+                                                    sorter: true,
+                                                    _classes:
+                                                        "font-weight-bold",
+                                                },
+                                                {
+                                                    key: "lmsYn",
+                                                    label: "LMS 메시지 유무",
+                                                    sorter: false,
+                                                },
+                                                {
+                                                    key: "emailYn",
+                                                    label: "Email 유무",
+                                                    sorter: false,
+                                                },
+                                                {
+                                                    key: "smsYn",
+                                                    label: "SMS 유무",
+                                                    sorter: false,
+                                                },
+                                                {
+                                                    key: "snsYn",
+                                                    label: "SNS 유무",
+                                                    sorter: false,
+                                                },
+                                                {
+                                                    key: "date",
+                                                    label: "보낸 날짜",
+                                                    sorter: true,
+                                                },
+                                            ]}
+                                            scopedSlots={{
+                                                interventionName: (item) => (
+                                                    <td>
+                                                        <Link to="/interventionlist">
+                                                            {
+                                                                item.interventionName
+                                                            }
+                                                        </Link>
+                                                    </td>
+                                                ),
+                                            }}
+                                        />
+                                    </CCardBody>
+                                </CCard>
+                            </CModalBody>
+                            <CModalFooter>
+                                <CButton
+                                    color="secondary"
+                                    onClick={() => setModal(!modal)}
+                                >
+                                    닫기
+                                </CButton>
+                            </CModalFooter>
+                        </CModal>
+                    </CCardBody>
+                </CCard>
+            </CCol>
+        </CRow>
+    );
+};
+
+export default LearningAnalytics;

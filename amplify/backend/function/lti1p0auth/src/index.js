@@ -59,17 +59,10 @@ var handler = (exports.handler = function handler(event, context, callback) {
         lti_shared_secret
     );
 
-    var queryString = Object.keys(b)
-        .map(function (key) {
-            return key + "=" + b[key];
-        })
-        .join("&");
-
     const response = {
         statusCode: 301,
         headers: {
-            Location:
-                "https://master.d1q0eq3lbgake7.amplifyapp.com?" + queryString,
+            Location: "https://master.d1q0eq3lbgake7.amplifyapp.com?" + temp,
         },
     };
 

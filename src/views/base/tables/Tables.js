@@ -39,7 +39,7 @@ const Tables = () => {
                                 items={usersData}
                                 fields={fields}
                                 itemsPerPage={5}
-                                pagination
+                                // pagination
                                 scopedSlots={{
                                     status: (item) => (
                                         <td>

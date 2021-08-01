@@ -21,7 +21,7 @@ const TheFooter = () => {
                   target="_blank"
                   rel="noopener noreferrer"
               >
-                  PASS Finder for LMS
+                  PASS Finder
               </a>
           </div>
       </CFooter>

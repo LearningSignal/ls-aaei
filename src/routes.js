@@ -1,5 +1,17 @@
 import React from "react";
 
+const LearningAnalytics = React.lazy(() =>
+    import("./views/aaei/LearningAnalytics")
+);
+
+const InterventionDesign = React.lazy(() =>
+    import("./views/aaei/InterventionDesign")
+);
+
+const InterventionList = React.lazy(() =>
+    import("./views/aaei/InterventionList")
+);
+
 const Toaster = React.lazy(() =>
     import("./views/notifications/toaster/Toaster")
 );
@@ -62,6 +74,22 @@ const User = React.lazy(() => import("./views/users/User"));
 
 const routes = [
     { path: "/", exact: true, name: "Home" },
+    {
+        path: "/learninganalytics",
+        name: "LearningAnalytics",
+        component: LearningAnalytics,
+    },
+    {
+        path: "/interventiondesign",
+        name: "InterventionDesign",
+        component: InterventionDesign,
+    },
+    {
+        path: "/interventionlist",
+        name: "InterventionList",
+        component: InterventionList,
+    },
+
     { path: "/dashboard", name: "Dashboard", component: Dashboard },
     { path: "/theme", name: "Theme", component: Colors, exact: true },
     { path: "/theme/colors", name: "Colors", component: Colors },
