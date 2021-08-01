@@ -11,13 +11,12 @@ import {
     CFormText,
     CTextarea,
     CInput,
-    CInputFile,
-    CInputCheckbox,
     CInputRadio,
     CLabel,
     CSelect,
     CRow,
     CSwitch,
+    CBadge,
 } from "@coreui/react";
 import CIcon from "@coreui/icons-react";
 
@@ -43,528 +42,64 @@ const InterventionDesign = () => {
                             >
                                 <CFormGroup row>
                                     <CCol md="3">
-                                        <CLabel>Static</CLabel>
-                                    </CCol>
-                                    <CCol xs="12" md="9">
-                                        <p className="form-control-static">
-                                            Username
-                                        </p>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
                                         <CLabel htmlFor="text-input">
-                                            Text Input
+                                            이름
                                         </CLabel>
                                     </CCol>
                                     <CCol xs="12" md="9">
                                         <CInput
                                             id="text-input"
                                             name="text-input"
-                                            placeholder="Text"
+                                            placeholder="개입 이름"
                                         />
                                         <CFormText>
-                                            This is a help text
+                                            학습개입 이름을 입력하세요.
                                         </CFormText>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel htmlFor="email-input">
-                                            Email Input
-                                        </CLabel>
-                                    </CCol>
-                                    <CCol xs="12" md="9">
-                                        <CInput
-                                            type="email"
-                                            id="email-input"
-                                            name="email-input"
-                                            placeholder="Enter Email"
-                                            autoComplete="email"
-                                        />
-                                        <CFormText className="help-block">
-                                            Please enter your email
-                                        </CFormText>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel htmlFor="password-input">
-                                            Password
-                                        </CLabel>
-                                    </CCol>
-                                    <CCol xs="12" md="9">
-                                        <CInput
-                                            type="password"
-                                            id="password-input"
-                                            name="password-input"
-                                            placeholder="Password"
-                                            autoComplete="new-password"
-                                        />
-                                        <CFormText className="help-block">
-                                            Please enter a complex password
-                                        </CFormText>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel htmlFor="date-input">
-                                            Date Input
-                                        </CLabel>
-                                    </CCol>
-                                    <CCol xs="12" md="9">
-                                        <CInput
-                                            type="date"
-                                            id="date-input"
-                                            name="date-input"
-                                            placeholder="date"
-                                        />
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel htmlFor="disabled-input">
-                                            Disabled Input
-                                        </CLabel>
-                                    </CCol>
-                                    <CCol xs="12" md="9">
-                                        <CInput
-                                            id="disabled-input"
-                                            name="disabled-input"
-                                            placeholder="Disabled"
-                                            disabled
-                                        />
                                     </CCol>
                                 </CFormGroup>
                                 <CFormGroup row>
                                     <CCol md="3">
                                         <CLabel htmlFor="textarea-input">
-                                            Textarea
+                                            설명
                                         </CLabel>
                                     </CCol>
                                     <CCol xs="12" md="9">
                                         <CTextarea
                                             name="textarea-input"
                                             id="textarea-input"
-                                            rows="9"
-                                            placeholder="Content..."
+                                            rows="3"
+                                            placeholder="개입에 대한 설명"
                                         />
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel htmlFor="select">Select</CLabel>
-                                    </CCol>
-                                    <CCol xs="12" md="9">
-                                        <CSelect
-                                            custom
-                                            name="select"
-                                            id="select"
-                                        >
-                                            <option value="0">
-                                                Please select
-                                            </option>
-                                            <option value="1">Option #1</option>
-                                            <option value="2">Option #2</option>
-                                            <option value="3">Option #3</option>
-                                        </CSelect>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel htmlFor="selectLg">
-                                            Select Large
-                                        </CLabel>
-                                    </CCol>
-                                    <CCol xs="12" md="9" size="lg">
-                                        <CSelect
-                                            custom
-                                            size="lg"
-                                            name="selectLg"
-                                            id="selectLg"
-                                        >
-                                            <option value="0">
-                                                Please select
-                                            </option>
-                                            <option value="1">Option #1</option>
-                                            <option value="2">Option #2</option>
-                                            <option value="3">Option #3</option>
-                                        </CSelect>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel htmlFor="selectSm">
-                                            Select Small
-                                        </CLabel>
-                                    </CCol>
-                                    <CCol xs="12" md="9">
-                                        <CSelect
-                                            custom
-                                            size="sm"
-                                            name="selectSm"
-                                            id="SelectLm"
-                                        >
-                                            <option value="0">
-                                                Please select
-                                            </option>
-                                            <option value="1">Option #1</option>
-                                            <option value="2">Option #2</option>
-                                            <option value="3">Option #3</option>
-                                            <option value="4">Option #4</option>
-                                            <option value="5">Option #5</option>
-                                        </CSelect>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel htmlFor="disabledSelect">
-                                            Disabled Select
-                                        </CLabel>
-                                    </CCol>
-                                    <CCol xs="12" md="9">
-                                        <CSelect
-                                            custom
-                                            name="disabledSelect"
-                                            id="disabledSelect"
-                                            disabled
-                                            autoComplete="name"
-                                        >
-                                            <option value="0">
-                                                Please select
-                                            </option>
-                                            <option value="1">Option #1</option>
-                                            <option value="2">Option #2</option>
-                                            <option value="3">Option #3</option>
-                                        </CSelect>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol
-                                        tag="label"
-                                        sm="3"
-                                        className="col-form-label"
-                                    >
-                                        Switch checkboxes
-                                    </CCol>
-                                    <CCol sm="9">
-                                        <CSwitch
-                                            className="mr-1"
-                                            color="primary"
-                                            defaultChecked
-                                        />
-                                        <CSwitch
-                                            className="mr-1"
-                                            color="success"
-                                            defaultChecked
-                                            variant="outline"
-                                        />
-                                        <CSwitch
-                                            className="mr-1"
-                                            color="warning"
-                                            defaultChecked
-                                            variant="opposite"
-                                        />
-                                        <CSwitch
-                                            className="mr-1"
-                                            color="danger"
-                                            defaultChecked
-                                            shape="pill"
-                                        />
-                                        <CSwitch
-                                            className="mr-1"
-                                            color="info"
-                                            defaultChecked
-                                            shape="pill"
-                                            variant="outline"
-                                        />
-                                        <CSwitch
-                                            className="mr-1"
-                                            color="dark"
-                                            defaultChecked
-                                            shape="pill"
-                                            variant="opposite"
-                                        />
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel>Radios</CLabel>
-                                    </CCol>
-                                    <CCol md="9">
-                                        <CFormGroup variant="checkbox">
-                                            <CInputRadio
-                                                className="form-check-input"
-                                                id="radio1"
-                                                name="radios"
-                                                value="option1"
-                                            />
-                                            <CLabel
-                                                variant="checkbox"
-                                                htmlFor="radio1"
-                                            >
-                                                Option 1
-                                            </CLabel>
-                                        </CFormGroup>
-                                        <CFormGroup variant="checkbox">
-                                            <CInputRadio
-                                                className="form-check-input"
-                                                id="radio2"
-                                                name="radios"
-                                                value="option2"
-                                            />
-                                            <CLabel
-                                                variant="checkbox"
-                                                htmlFor="radio2"
-                                            >
-                                                Option 2
-                                            </CLabel>
-                                        </CFormGroup>
-                                        <CFormGroup variant="checkbox">
-                                            <CInputRadio
-                                                className="form-check-input"
-                                                id="radio3"
-                                                name="radios"
-                                                value="option3"
-                                            />
-                                            <CLabel
-                                                variant="checkbox"
-                                                htmlFor="radio3"
-                                            >
-                                                Option 3
-                                            </CLabel>
-                                        </CFormGroup>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel>Inline Radios</CLabel>
-                                    </CCol>
-                                    <CCol md="9">
-                                        <CFormGroup
-                                            variant="custom-radio"
-                                            inline
-                                        >
-                                            <CInputRadio
-                                                custom
-                                                id="inline-radio1"
-                                                name="inline-radios"
-                                                value="option1"
-                                            />
-                                            <CLabel
-                                                variant="custom-checkbox"
-                                                htmlFor="inline-radio1"
-                                            >
-                                                One
-                                            </CLabel>
-                                        </CFormGroup>
-                                        <CFormGroup
-                                            variant="custom-radio"
-                                            inline
-                                        >
-                                            <CInputRadio
-                                                custom
-                                                id="inline-radio2"
-                                                name="inline-radios"
-                                                value="option2"
-                                            />
-                                            <CLabel
-                                                variant="custom-checkbox"
-                                                htmlFor="inline-radio2"
-                                            >
-                                                Two
-                                            </CLabel>
-                                        </CFormGroup>
-                                        <CFormGroup
-                                            variant="custom-radio"
-                                            inline
-                                        >
-                                            <CInputRadio
-                                                custom
-                                                id="inline-radio3"
-                                                name="inline-radios"
-                                                value="option3"
-                                            />
-                                            <CLabel
-                                                variant="custom-checkbox"
-                                                htmlFor="inline-radio3"
-                                            >
-                                                Three
-                                            </CLabel>
-                                        </CFormGroup>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel>Checkboxes</CLabel>
-                                    </CCol>
-                                    <CCol md="9">
-                                        <CFormGroup
-                                            variant="checkbox"
-                                            className="checkbox"
-                                        >
-                                            <CInputCheckbox
-                                                id="checkbox1"
-                                                name="checkbox1"
-                                                value="option1"
-                                            />
-                                            <CLabel
-                                                variant="checkbox"
-                                                className="form-check-label"
-                                                htmlFor="checkbox1"
-                                            >
-                                                Option 1
-                                            </CLabel>
-                                        </CFormGroup>
-                                        <CFormGroup
-                                            variant="checkbox"
-                                            className="checkbox"
-                                        >
-                                            <CInputCheckbox
-                                                id="checkbox2"
-                                                name="checkbox2"
-                                                value="option2"
-                                            />
-                                            <CLabel
-                                                variant="checkbox"
-                                                className="form-check-label"
-                                                htmlFor="checkbox2"
-                                            >
-                                                Option 2
-                                            </CLabel>
-                                        </CFormGroup>
-                                        <CFormGroup
-                                            variant="checkbox"
-                                            className="checkbox"
-                                        >
-                                            <CInputCheckbox
-                                                id="checkbox3"
-                                                name="checkbox3"
-                                                value="option3"
-                                            />
-                                            <CLabel
-                                                variant="checkbox"
-                                                className="form-check-label"
-                                                htmlFor="checkbox3"
-                                            >
-                                                Option 3
-                                            </CLabel>
-                                        </CFormGroup>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel>Inline Checkboxes</CLabel>
-                                    </CCol>
-                                    <CCol md="9">
-                                        <CFormGroup
-                                            variant="custom-checkbox"
-                                            inline
-                                        >
-                                            <CInputCheckbox
-                                                custom
-                                                id="inline-checkbox1"
-                                                name="inline-checkbox1"
-                                                value="option1"
-                                            />
-                                            <CLabel
-                                                variant="custom-checkbox"
-                                                htmlFor="inline-checkbox1"
-                                            >
-                                                One
-                                            </CLabel>
-                                        </CFormGroup>
-                                        <CFormGroup
-                                            variant="custom-checkbox"
-                                            inline
-                                        >
-                                            <CInputCheckbox
-                                                custom
-                                                id="inline-checkbox2"
-                                                name="inline-checkbox2"
-                                                value="option2"
-                                            />
-                                            <CLabel
-                                                variant="custom-checkbox"
-                                                htmlFor="inline-checkbox2"
-                                            >
-                                                Two
-                                            </CLabel>
-                                        </CFormGroup>
-                                        <CFormGroup
-                                            variant="custom-checkbox"
-                                            inline
-                                        >
-                                            <CInputCheckbox
-                                                custom
-                                                id="inline-checkbox3"
-                                                name="inline-checkbox3"
-                                                value="option3"
-                                            />
-                                            <CLabel
-                                                variant="custom-checkbox"
-                                                htmlFor="inline-checkbox3"
-                                            >
-                                                Three
-                                            </CLabel>
-                                        </CFormGroup>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CLabel col md="3" htmlFor="file-input">
-                                        File input
-                                    </CLabel>
-                                    <CCol xs="12" md="9">
-                                        <CInputFile
-                                            id="file-input"
-                                            name="file-input"
-                                        />
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel>Multiple File input</CLabel>
-                                    </CCol>
-                                    <CCol xs="12" md="9">
-                                        <CInputFile
-                                            id="file-multiple-input"
-                                            name="file-multiple-input"
-                                            multiple
-                                            custom
-                                        />
-                                        <CLabel
-                                            htmlFor="file-multiple-input"
-                                            variant="custom-file"
-                                        >
-                                            Choose Files...
-                                        </CLabel>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CLabel col md={3}>
-                                        Custom file input
-                                    </CLabel>
-                                    <CCol xs="12" md="9">
-                                        <CInputFile
-                                            custom
-                                            id="custom-file-input"
-                                        />
-                                        <CLabel
-                                            htmlFor="custom-file-input"
-                                            variant="custom-file"
-                                        >
-                                            Choose file...
-                                        </CLabel>
                                     </CCol>
                                 </CFormGroup>
                             </CForm>
                         </CCardBody>
                         <CCardFooter>
-                            <CButton type="submit" size="sm" color="primary">
-                                <CIcon name="cil-scrubber" /> Submit
+                            <CButton
+                                type="submit"
+                                className="mr-1"
+                                size="sm"
+                                color="primary"
+                            >
+                                <CIcon name="cil-scrubber" /> 학습개입 조건
+                                정하기
                             </CButton>
-                            <CButton type="reset" size="sm" color="danger">
-                                <CIcon name="cil-ban" /> Reset
+                            <CButton
+                                type="reset"
+                                className="mr-1"
+                                size="sm"
+                                color="info"
+                            >
+                                <CIcon name="cil-scrubber" /> 기존 개입 불러오기
+                            </CButton>
+                            <CButton
+                                type="reset"
+                                className="mr-1"
+                                size="sm"
+                                color="danger"
+                            >
+                                <CIcon name="cil-ban" /> 학습개입 이름
+                                초기화하기
                             </CButton>
                         </CCardFooter>
                     </CCard>
@@ -575,7 +110,7 @@ const InterventionDesign = () => {
                     <CCard>
                         <CCardHeader>
                             학습개입 조건 정하기
-                            <small> Condition</small>
+                            <small> condition</small>
                         </CCardHeader>
                         <CCardBody>
                             <CForm
@@ -586,304 +121,67 @@ const InterventionDesign = () => {
                             >
                                 <CFormGroup row>
                                     <CCol md="3">
-                                        <CLabel>Static</CLabel>
-                                    </CCol>
-                                    <CCol xs="12" md="9">
-                                        <p className="form-control-static">
-                                            Username
-                                        </p>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel htmlFor="text-input">
-                                            Text Input
+                                        <CLabel htmlFor="select">
+                                            개입 조건
                                         </CLabel>
                                     </CCol>
-                                    <CCol xs="12" md="9">
-                                        <CInput
-                                            id="text-input"
-                                            name="text-input"
-                                            placeholder="Text"
-                                        />
-                                        <CFormText>
-                                            This is a help text
-                                        </CFormText>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel htmlFor="email-input">
-                                            Email Input
-                                        </CLabel>
-                                    </CCol>
-                                    <CCol xs="12" md="9">
-                                        <CInput
-                                            type="email"
-                                            id="email-input"
-                                            name="email-input"
-                                            placeholder="Enter Email"
-                                            autoComplete="email"
-                                        />
-                                        <CFormText className="help-block">
-                                            Please enter your email
-                                        </CFormText>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel htmlFor="password-input">
-                                            Password
-                                        </CLabel>
-                                    </CCol>
-                                    <CCol xs="12" md="9">
-                                        <CInput
-                                            type="password"
-                                            id="password-input"
-                                            name="password-input"
-                                            placeholder="Password"
-                                            autoComplete="new-password"
-                                        />
-                                        <CFormText className="help-block">
-                                            Please enter a complex password
-                                        </CFormText>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel htmlFor="date-input">
-                                            Date Input
-                                        </CLabel>
-                                    </CCol>
-                                    <CCol xs="12" md="9">
-                                        <CInput
-                                            type="date"
-                                            id="date-input"
-                                            name="date-input"
-                                            placeholder="date"
-                                        />
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel htmlFor="disabled-input">
-                                            Disabled Input
-                                        </CLabel>
-                                    </CCol>
-                                    <CCol xs="12" md="9">
-                                        <CInput
-                                            id="disabled-input"
-                                            name="disabled-input"
-                                            placeholder="Disabled"
-                                            disabled
-                                        />
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel htmlFor="textarea-input">
-                                            Textarea
-                                        </CLabel>
-                                    </CCol>
-                                    <CCol xs="12" md="9">
-                                        <CTextarea
-                                            name="textarea-input"
-                                            id="textarea-input"
-                                            rows="9"
-                                            placeholder="Content..."
-                                        />
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel htmlFor="select">Select</CLabel>
-                                    </CCol>
-                                    <CCol xs="12" md="9">
+                                    <CCol xs="3" md="3">
                                         <CSelect
                                             custom
                                             name="select"
                                             id="select"
                                         >
-                                            <option value="0">
-                                                Please select
+                                            <option value="0">컬럼 선택</option>
+                                            <option value="1">과제 #1</option>
+                                            <option value="2">과제 #2</option>
+                                            <option value="3">과제 #3</option>
+                                            <option value="4">과제 #4</option>
+                                            <option value="5">과제 #5</option>
+                                            <option value="6">과제 #6</option>
+                                            <option value="7">과제 #7</option>
+                                            <option value="8">과제 #8</option>
+                                            <option value="9">과제 #9</option>
+                                            <option value="10">퀴즈 #1</option>
+                                            <option value="11">퀴즈 #2</option>
+                                            <option value="12">퀴즈 #3</option>
+                                            <option value="13">퀴즈 #4</option>
+                                            <option value="14">
+                                                중간고사 #1
                                             </option>
-                                            <option value="1">Option #1</option>
-                                            <option value="2">Option #2</option>
-                                            <option value="3">Option #3</option>
                                         </CSelect>
                                     </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel htmlFor="selectLg">
-                                            Select Large
-                                        </CLabel>
-                                    </CCol>
-                                    <CCol xs="12" md="9" size="lg">
+                                    <CCol xs="3" md="3">
                                         <CSelect
                                             custom
-                                            size="lg"
-                                            name="selectLg"
-                                            id="selectLg"
+                                            name="select"
+                                            id="select"
                                         >
-                                            <option value="0">
-                                                Please select
-                                            </option>
-                                            <option value="1">Option #1</option>
-                                            <option value="2">Option #2</option>
-                                            <option value="3">Option #3</option>
+                                            <option value="0">조건 선택</option>
+                                            <option value="1">이하의</option>
+                                            <option value="1">초과의</option>
+                                            <option value="1">미만의</option>
+                                            <option value="1">초과의</option>
+                                            <option value="1">같은</option>
                                         </CSelect>
                                     </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel htmlFor="selectSm">
-                                            Select Small
-                                        </CLabel>
+                                    <CCol xs="3" md="2">
+                                        <CInput
+                                            id="cvv"
+                                            placeholder="0"
+                                            required
+                                        />
                                     </CCol>
-                                    <CCol xs="12" md="9">
-                                        <CSelect
-                                            custom
-                                            size="sm"
-                                            name="selectSm"
-                                            id="SelectLm"
-                                        >
-                                            <option value="0">
-                                                Please select
-                                            </option>
-                                            <option value="1">Option #1</option>
-                                            <option value="2">Option #2</option>
-                                            <option value="3">Option #3</option>
-                                            <option value="4">Option #4</option>
-                                            <option value="5">Option #5</option>
-                                        </CSelect>
+                                    <CCol xs="3" md="1">
+                                        <CButton color="secondary">
+                                            추가
+                                        </CButton>
                                     </CCol>
                                 </CFormGroup>
                                 <CFormGroup row>
                                     <CCol md="3">
-                                        <CLabel htmlFor="disabledSelect">
-                                            Disabled Select
-                                        </CLabel>
+                                        <CLabel></CLabel>
                                     </CCol>
-                                    <CCol xs="12" md="9">
-                                        <CSelect
-                                            custom
-                                            name="disabledSelect"
-                                            id="disabledSelect"
-                                            disabled
-                                            autoComplete="name"
-                                        >
-                                            <option value="0">
-                                                Please select
-                                            </option>
-                                            <option value="1">Option #1</option>
-                                            <option value="2">Option #2</option>
-                                            <option value="3">Option #3</option>
-                                        </CSelect>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol
-                                        tag="label"
-                                        sm="3"
-                                        className="col-form-label"
-                                    >
-                                        Switch checkboxes
-                                    </CCol>
-                                    <CCol sm="9">
-                                        <CSwitch
-                                            className="mr-1"
-                                            color="primary"
-                                            defaultChecked
-                                        />
-                                        <CSwitch
-                                            className="mr-1"
-                                            color="success"
-                                            defaultChecked
-                                            variant="outline"
-                                        />
-                                        <CSwitch
-                                            className="mr-1"
-                                            color="warning"
-                                            defaultChecked
-                                            variant="opposite"
-                                        />
-                                        <CSwitch
-                                            className="mr-1"
-                                            color="danger"
-                                            defaultChecked
-                                            shape="pill"
-                                        />
-                                        <CSwitch
-                                            className="mr-1"
-                                            color="info"
-                                            defaultChecked
-                                            shape="pill"
-                                            variant="outline"
-                                        />
-                                        <CSwitch
-                                            className="mr-1"
-                                            color="dark"
-                                            defaultChecked
-                                            shape="pill"
-                                            variant="opposite"
-                                        />
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel>Radios</CLabel>
-                                    </CCol>
-                                    <CCol md="9">
-                                        <CFormGroup variant="checkbox">
-                                            <CInputRadio
-                                                className="form-check-input"
-                                                id="radio1"
-                                                name="radios"
-                                                value="option1"
-                                            />
-                                            <CLabel
-                                                variant="checkbox"
-                                                htmlFor="radio1"
-                                            >
-                                                Option 1
-                                            </CLabel>
-                                        </CFormGroup>
-                                        <CFormGroup variant="checkbox">
-                                            <CInputRadio
-                                                className="form-check-input"
-                                                id="radio2"
-                                                name="radios"
-                                                value="option2"
-                                            />
-                                            <CLabel
-                                                variant="checkbox"
-                                                htmlFor="radio2"
-                                            >
-                                                Option 2
-                                            </CLabel>
-                                        </CFormGroup>
-                                        <CFormGroup variant="checkbox">
-                                            <CInputRadio
-                                                className="form-check-input"
-                                                id="radio3"
-                                                name="radios"
-                                                value="option3"
-                                            />
-                                            <CLabel
-                                                variant="checkbox"
-                                                htmlFor="radio3"
-                                            >
-                                                Option 3
-                                            </CLabel>
-                                        </CFormGroup>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel>Inline Radios</CLabel>
-                                    </CCol>
-                                    <CCol md="9">
+                                    <CCol md="1">
                                         <CFormGroup
                                             variant="custom-radio"
                                             inline
@@ -898,7 +196,7 @@ const InterventionDesign = () => {
                                                 variant="custom-checkbox"
                                                 htmlFor="inline-radio1"
                                             >
-                                                One
+                                                AND
                                             </CLabel>
                                         </CFormGroup>
                                         <CFormGroup
@@ -915,199 +213,74 @@ const InterventionDesign = () => {
                                                 variant="custom-checkbox"
                                                 htmlFor="inline-radio2"
                                             >
-                                                Two
+                                                OR
                                             </CLabel>
                                         </CFormGroup>
-                                        <CFormGroup
-                                            variant="custom-radio"
-                                            inline
-                                        >
-                                            <CInputRadio
-                                                custom
-                                                id="inline-radio3"
-                                                name="inline-radios"
-                                                value="option3"
-                                            />
-                                            <CLabel
-                                                variant="custom-checkbox"
-                                                htmlFor="inline-radio3"
-                                            >
-                                                Three
-                                            </CLabel>
-                                        </CFormGroup>
+                                    </CCol>
+                                    <CCol xs="3" md="1">
+                                        <CButton color="secondary">
+                                            추가
+                                        </CButton>
                                     </CCol>
                                 </CFormGroup>
                                 <CFormGroup row>
                                     <CCol md="3">
-                                        <CLabel>Checkboxes</CLabel>
-                                    </CCol>
-                                    <CCol md="9">
-                                        <CFormGroup
-                                            variant="checkbox"
-                                            className="checkbox"
-                                        >
-                                            <CInputCheckbox
-                                                id="checkbox1"
-                                                name="checkbox1"
-                                                value="option1"
-                                            />
-                                            <CLabel
-                                                variant="checkbox"
-                                                className="form-check-label"
-                                                htmlFor="checkbox1"
-                                            >
-                                                Option 1
-                                            </CLabel>
-                                        </CFormGroup>
-                                        <CFormGroup
-                                            variant="checkbox"
-                                            className="checkbox"
-                                        >
-                                            <CInputCheckbox
-                                                id="checkbox2"
-                                                name="checkbox2"
-                                                value="option2"
-                                            />
-                                            <CLabel
-                                                variant="checkbox"
-                                                className="form-check-label"
-                                                htmlFor="checkbox2"
-                                            >
-                                                Option 2
-                                            </CLabel>
-                                        </CFormGroup>
-                                        <CFormGroup
-                                            variant="checkbox"
-                                            className="checkbox"
-                                        >
-                                            <CInputCheckbox
-                                                id="checkbox3"
-                                                name="checkbox3"
-                                                value="option3"
-                                            />
-                                            <CLabel
-                                                variant="checkbox"
-                                                className="form-check-label"
-                                                htmlFor="checkbox3"
-                                            >
-                                                Option 3
-                                            </CLabel>
-                                        </CFormGroup>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel>Inline Checkboxes</CLabel>
-                                    </CCol>
-                                    <CCol md="9">
-                                        <CFormGroup
-                                            variant="custom-checkbox"
-                                            inline
-                                        >
-                                            <CInputCheckbox
-                                                custom
-                                                id="inline-checkbox1"
-                                                name="inline-checkbox1"
-                                                value="option1"
-                                            />
-                                            <CLabel
-                                                variant="custom-checkbox"
-                                                htmlFor="inline-checkbox1"
-                                            >
-                                                One
-                                            </CLabel>
-                                        </CFormGroup>
-                                        <CFormGroup
-                                            variant="custom-checkbox"
-                                            inline
-                                        >
-                                            <CInputCheckbox
-                                                custom
-                                                id="inline-checkbox2"
-                                                name="inline-checkbox2"
-                                                value="option2"
-                                            />
-                                            <CLabel
-                                                variant="custom-checkbox"
-                                                htmlFor="inline-checkbox2"
-                                            >
-                                                Two
-                                            </CLabel>
-                                        </CFormGroup>
-                                        <CFormGroup
-                                            variant="custom-checkbox"
-                                            inline
-                                        >
-                                            <CInputCheckbox
-                                                custom
-                                                id="inline-checkbox3"
-                                                name="inline-checkbox3"
-                                                value="option3"
-                                            />
-                                            <CLabel
-                                                variant="custom-checkbox"
-                                                htmlFor="inline-checkbox3"
-                                            >
-                                                Three
-                                            </CLabel>
-                                        </CFormGroup>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CLabel col md="3" htmlFor="file-input">
-                                        File input
-                                    </CLabel>
-                                    <CCol xs="12" md="9">
-                                        <CInputFile
-                                            id="file-input"
-                                            name="file-input"
-                                        />
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel>Multiple File input</CLabel>
-                                    </CCol>
-                                    <CCol xs="12" md="9">
-                                        <CInputFile
-                                            id="file-multiple-input"
-                                            name="file-multiple-input"
-                                            multiple
-                                            custom
-                                        />
-                                        <CLabel
-                                            htmlFor="file-multiple-input"
-                                            variant="custom-file"
-                                        >
-                                            Choose Files...
+                                        <CLabel htmlFor="textarea-input">
+                                            개입 조건 #1
                                         </CLabel>
                                     </CCol>
+                                    <CCol xs="12" md="9">
+                                        <CInput
+                                            id="text-input"
+                                            name="text-input"
+                                            placeholder="과제 #1 < 5"
+                                            disabled
+                                        />
+                                    </CCol>
                                 </CFormGroup>
                                 <CFormGroup row>
-                                    <CLabel col md={3}>
-                                        Custom file input
-                                    </CLabel>
+                                    <CCol md="3">
+                                        <CLabel htmlFor="textarea-input"></CLabel>
+                                    </CCol>
                                     <CCol xs="12" md="9">
-                                        <CInputFile
-                                            custom
-                                            id="custom-file-input"
-                                        />
-                                        <CLabel
-                                            htmlFor="custom-file-input"
-                                            variant="custom-file"
-                                        >
-                                            Choose file...
+                                        <CButton color="info">AND</CButton>
+                                    </CCol>
+                                </CFormGroup>
+                                <CFormGroup row>
+                                    <CCol md="3">
+                                        <CLabel htmlFor="textarea-input">
+                                            개입 조건 #2
                                         </CLabel>
+                                    </CCol>
+                                    <CCol xs="12" md="9">
+                                        <CInput
+                                            id="text-input"
+                                            name="text-input"
+                                            placeholder="중간고사 #1 <50"
+                                            disabled
+                                        />
                                     </CCol>
                                 </CFormGroup>
                             </CForm>
                         </CCardBody>
                         <CCardFooter>
-                            <CButton type="submit" size="sm" color="primary">
-                                <CIcon name="cil-scrubber" /> Submit
+                            <CButton
+                                type="submit"
+                                className="mr-1"
+                                size="sm"
+                                color="primary"
+                            >
+                                <CIcon name="cil-scrubber" /> 학습개입 시점
+                                정하기
                             </CButton>
-                            <CButton type="reset" size="sm" color="danger">
-                                <CIcon name="cil-ban" /> Reset
+                            <CButton
+                                type="reset"
+                                className="mr-1"
+                                size="sm"
+                                color="danger"
+                            >
+                                <CIcon name="cil-ban" /> 학습개입 조건
+                                초기화하기
                             </CButton>
                         </CCardFooter>
                     </CCard>
@@ -1117,8 +290,8 @@ const InterventionDesign = () => {
                 <CCol xs="12" md="12">
                     <CCard>
                         <CCardHeader>
-                            학습개입 대상자 정하기
-                            <small> Recipient</small>
+                            학습개입 시점 정하기
+                            <small> time</small>
                         </CCardHeader>
                         <CCardBody>
                             <CForm
@@ -1129,73 +302,66 @@ const InterventionDesign = () => {
                             >
                                 <CFormGroup row>
                                     <CCol md="3">
-                                        <CLabel>Static</CLabel>
+                                        <CLabel>시점</CLabel>
                                     </CCol>
-                                    <CCol xs="12" md="9">
-                                        <p className="form-control-static">
-                                            Username
-                                        </p>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel htmlFor="text-input">
-                                            Text Input
-                                        </CLabel>
-                                    </CCol>
-                                    <CCol xs="12" md="9">
-                                        <CInput
-                                            id="text-input"
-                                            name="text-input"
-                                            placeholder="Text"
-                                        />
-                                        <CFormText>
-                                            This is a help text
-                                        </CFormText>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel htmlFor="email-input">
-                                            Email Input
-                                        </CLabel>
-                                    </CCol>
-                                    <CCol xs="12" md="9">
-                                        <CInput
-                                            type="email"
-                                            id="email-input"
-                                            name="email-input"
-                                            placeholder="Enter Email"
-                                            autoComplete="email"
-                                        />
-                                        <CFormText className="help-block">
-                                            Please enter your email
-                                        </CFormText>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel htmlFor="password-input">
-                                            Password
-                                        </CLabel>
-                                    </CCol>
-                                    <CCol xs="12" md="9">
-                                        <CInput
-                                            type="password"
-                                            id="password-input"
-                                            name="password-input"
-                                            placeholder="Password"
-                                            autoComplete="new-password"
-                                        />
-                                        <CFormText className="help-block">
-                                            Please enter a complex password
-                                        </CFormText>
+                                    <CCol md="9">
+                                        <CFormGroup
+                                            variant="custom-radio"
+                                            inline
+                                        >
+                                            <CInputRadio
+                                                custom
+                                                id="inline-radio3"
+                                                name="inline-radios"
+                                                value="option1"
+                                            />
+                                            <CLabel
+                                                variant="custom-checkbox"
+                                                htmlFor="inline-radio3"
+                                            >
+                                                즉시
+                                            </CLabel>
+                                        </CFormGroup>
+                                        <CFormGroup
+                                            variant="custom-radio"
+                                            inline
+                                        >
+                                            <CInputRadio
+                                                custom
+                                                id="inline-radio4"
+                                                name="inline-radios"
+                                                value="option2"
+                                            />
+                                            <CLabel
+                                                variant="custom-checkbox"
+                                                htmlFor="inline-radio4"
+                                            >
+                                                특정 날짜에
+                                            </CLabel>
+                                        </CFormGroup>
+                                        <CFormGroup
+                                            variant="custom-radio"
+                                            inline
+                                        >
+                                            <CInputRadio
+                                                custom
+                                                id="inline-radio5"
+                                                name="inline-radios"
+                                                value="option3"
+                                            />
+                                            <CLabel
+                                                variant="custom-checkbox"
+                                                htmlFor="inline-radio5"
+                                            >
+                                                주기적으로
+                                            </CLabel>
+                                        </CFormGroup>
                                     </CCol>
                                 </CFormGroup>
                                 <CFormGroup row>
                                     <CCol md="3">
                                         <CLabel htmlFor="date-input">
-                                            Date Input
+                                            특정 날짜 선택
                                         </CLabel>
                                     </CCol>
                                     <CCol xs="12" md="9">
@@ -1209,37 +375,9 @@ const InterventionDesign = () => {
                                 </CFormGroup>
                                 <CFormGroup row>
                                     <CCol md="3">
-                                        <CLabel htmlFor="disabled-input">
-                                            Disabled Input
+                                        <CLabel htmlFor="select">
+                                            주기 선택
                                         </CLabel>
-                                    </CCol>
-                                    <CCol xs="12" md="9">
-                                        <CInput
-                                            id="disabled-input"
-                                            name="disabled-input"
-                                            placeholder="Disabled"
-                                            disabled
-                                        />
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel htmlFor="textarea-input">
-                                            Textarea
-                                        </CLabel>
-                                    </CCol>
-                                    <CCol xs="12" md="9">
-                                        <CTextarea
-                                            name="textarea-input"
-                                            id="textarea-input"
-                                            rows="9"
-                                            placeholder="Content..."
-                                        />
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel htmlFor="select">Select</CLabel>
                                     </CCol>
                                     <CCol xs="12" md="9">
                                         <CSelect
@@ -1247,410 +385,116 @@ const InterventionDesign = () => {
                                             name="select"
                                             id="select"
                                         >
-                                            <option value="0">
-                                                Please select
-                                            </option>
-                                            <option value="1">Option #1</option>
-                                            <option value="2">Option #2</option>
-                                            <option value="3">Option #3</option>
+                                            <option value="0">주기 선택</option>
+                                            <option value="1">1주</option>
+                                            <option value="2">2주</option>
+                                            <option value="3">3주</option>
+                                            <option value="4">4주</option>
                                         </CSelect>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel htmlFor="selectLg">
-                                            Select Large
-                                        </CLabel>
-                                    </CCol>
-                                    <CCol xs="12" md="9" size="lg">
-                                        <CSelect
-                                            custom
-                                            size="lg"
-                                            name="selectLg"
-                                            id="selectLg"
-                                        >
-                                            <option value="0">
-                                                Please select
-                                            </option>
-                                            <option value="1">Option #1</option>
-                                            <option value="2">Option #2</option>
-                                            <option value="3">Option #3</option>
-                                        </CSelect>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel htmlFor="selectSm">
-                                            Select Small
-                                        </CLabel>
-                                    </CCol>
-                                    <CCol xs="12" md="9">
-                                        <CSelect
-                                            custom
-                                            size="sm"
-                                            name="selectSm"
-                                            id="SelectLm"
-                                        >
-                                            <option value="0">
-                                                Please select
-                                            </option>
-                                            <option value="1">Option #1</option>
-                                            <option value="2">Option #2</option>
-                                            <option value="3">Option #3</option>
-                                            <option value="4">Option #4</option>
-                                            <option value="5">Option #5</option>
-                                        </CSelect>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel htmlFor="disabledSelect">
-                                            Disabled Select
-                                        </CLabel>
-                                    </CCol>
-                                    <CCol xs="12" md="9">
-                                        <CSelect
-                                            custom
-                                            name="disabledSelect"
-                                            id="disabledSelect"
-                                            disabled
-                                            autoComplete="name"
-                                        >
-                                            <option value="0">
-                                                Please select
-                                            </option>
-                                            <option value="1">Option #1</option>
-                                            <option value="2">Option #2</option>
-                                            <option value="3">Option #3</option>
-                                        </CSelect>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol
-                                        tag="label"
-                                        sm="3"
-                                        className="col-form-label"
-                                    >
-                                        Switch checkboxes
-                                    </CCol>
-                                    <CCol sm="9">
-                                        <CSwitch
-                                            className="mr-1"
-                                            color="primary"
-                                            defaultChecked
-                                        />
-                                        <CSwitch
-                                            className="mr-1"
-                                            color="success"
-                                            defaultChecked
-                                            variant="outline"
-                                        />
-                                        <CSwitch
-                                            className="mr-1"
-                                            color="warning"
-                                            defaultChecked
-                                            variant="opposite"
-                                        />
-                                        <CSwitch
-                                            className="mr-1"
-                                            color="danger"
-                                            defaultChecked
-                                            shape="pill"
-                                        />
-                                        <CSwitch
-                                            className="mr-1"
-                                            color="info"
-                                            defaultChecked
-                                            shape="pill"
-                                            variant="outline"
-                                        />
-                                        <CSwitch
-                                            className="mr-1"
-                                            color="dark"
-                                            defaultChecked
-                                            shape="pill"
-                                            variant="opposite"
-                                        />
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel>Radios</CLabel>
-                                    </CCol>
-                                    <CCol md="9">
-                                        <CFormGroup variant="checkbox">
-                                            <CInputRadio
-                                                className="form-check-input"
-                                                id="radio1"
-                                                name="radios"
-                                                value="option1"
-                                            />
-                                            <CLabel
-                                                variant="checkbox"
-                                                htmlFor="radio1"
-                                            >
-                                                Option 1
-                                            </CLabel>
-                                        </CFormGroup>
-                                        <CFormGroup variant="checkbox">
-                                            <CInputRadio
-                                                className="form-check-input"
-                                                id="radio2"
-                                                name="radios"
-                                                value="option2"
-                                            />
-                                            <CLabel
-                                                variant="checkbox"
-                                                htmlFor="radio2"
-                                            >
-                                                Option 2
-                                            </CLabel>
-                                        </CFormGroup>
-                                        <CFormGroup variant="checkbox">
-                                            <CInputRadio
-                                                className="form-check-input"
-                                                id="radio3"
-                                                name="radios"
-                                                value="option3"
-                                            />
-                                            <CLabel
-                                                variant="checkbox"
-                                                htmlFor="radio3"
-                                            >
-                                                Option 3
-                                            </CLabel>
-                                        </CFormGroup>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel>Inline Radios</CLabel>
-                                    </CCol>
-                                    <CCol md="9">
-                                        <CFormGroup
-                                            variant="custom-radio"
-                                            inline
-                                        >
-                                            <CInputRadio
-                                                custom
-                                                id="inline-radio1"
-                                                name="inline-radios"
-                                                value="option1"
-                                            />
-                                            <CLabel
-                                                variant="custom-checkbox"
-                                                htmlFor="inline-radio1"
-                                            >
-                                                One
-                                            </CLabel>
-                                        </CFormGroup>
-                                        <CFormGroup
-                                            variant="custom-radio"
-                                            inline
-                                        >
-                                            <CInputRadio
-                                                custom
-                                                id="inline-radio2"
-                                                name="inline-radios"
-                                                value="option2"
-                                            />
-                                            <CLabel
-                                                variant="custom-checkbox"
-                                                htmlFor="inline-radio2"
-                                            >
-                                                Two
-                                            </CLabel>
-                                        </CFormGroup>
-                                        <CFormGroup
-                                            variant="custom-radio"
-                                            inline
-                                        >
-                                            <CInputRadio
-                                                custom
-                                                id="inline-radio3"
-                                                name="inline-radios"
-                                                value="option3"
-                                            />
-                                            <CLabel
-                                                variant="custom-checkbox"
-                                                htmlFor="inline-radio3"
-                                            >
-                                                Three
-                                            </CLabel>
-                                        </CFormGroup>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel>Checkboxes</CLabel>
-                                    </CCol>
-                                    <CCol md="9">
-                                        <CFormGroup
-                                            variant="checkbox"
-                                            className="checkbox"
-                                        >
-                                            <CInputCheckbox
-                                                id="checkbox1"
-                                                name="checkbox1"
-                                                value="option1"
-                                            />
-                                            <CLabel
-                                                variant="checkbox"
-                                                className="form-check-label"
-                                                htmlFor="checkbox1"
-                                            >
-                                                Option 1
-                                            </CLabel>
-                                        </CFormGroup>
-                                        <CFormGroup
-                                            variant="checkbox"
-                                            className="checkbox"
-                                        >
-                                            <CInputCheckbox
-                                                id="checkbox2"
-                                                name="checkbox2"
-                                                value="option2"
-                                            />
-                                            <CLabel
-                                                variant="checkbox"
-                                                className="form-check-label"
-                                                htmlFor="checkbox2"
-                                            >
-                                                Option 2
-                                            </CLabel>
-                                        </CFormGroup>
-                                        <CFormGroup
-                                            variant="checkbox"
-                                            className="checkbox"
-                                        >
-                                            <CInputCheckbox
-                                                id="checkbox3"
-                                                name="checkbox3"
-                                                value="option3"
-                                            />
-                                            <CLabel
-                                                variant="checkbox"
-                                                className="form-check-label"
-                                                htmlFor="checkbox3"
-                                            >
-                                                Option 3
-                                            </CLabel>
-                                        </CFormGroup>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel>Inline Checkboxes</CLabel>
-                                    </CCol>
-                                    <CCol md="9">
-                                        <CFormGroup
-                                            variant="custom-checkbox"
-                                            inline
-                                        >
-                                            <CInputCheckbox
-                                                custom
-                                                id="inline-checkbox1"
-                                                name="inline-checkbox1"
-                                                value="option1"
-                                            />
-                                            <CLabel
-                                                variant="custom-checkbox"
-                                                htmlFor="inline-checkbox1"
-                                            >
-                                                One
-                                            </CLabel>
-                                        </CFormGroup>
-                                        <CFormGroup
-                                            variant="custom-checkbox"
-                                            inline
-                                        >
-                                            <CInputCheckbox
-                                                custom
-                                                id="inline-checkbox2"
-                                                name="inline-checkbox2"
-                                                value="option2"
-                                            />
-                                            <CLabel
-                                                variant="custom-checkbox"
-                                                htmlFor="inline-checkbox2"
-                                            >
-                                                Two
-                                            </CLabel>
-                                        </CFormGroup>
-                                        <CFormGroup
-                                            variant="custom-checkbox"
-                                            inline
-                                        >
-                                            <CInputCheckbox
-                                                custom
-                                                id="inline-checkbox3"
-                                                name="inline-checkbox3"
-                                                value="option3"
-                                            />
-                                            <CLabel
-                                                variant="custom-checkbox"
-                                                htmlFor="inline-checkbox3"
-                                            >
-                                                Three
-                                            </CLabel>
-                                        </CFormGroup>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CLabel col md="3" htmlFor="file-input">
-                                        File input
-                                    </CLabel>
-                                    <CCol xs="12" md="9">
-                                        <CInputFile
-                                            id="file-input"
-                                            name="file-input"
-                                        />
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel>Multiple File input</CLabel>
-                                    </CCol>
-                                    <CCol xs="12" md="9">
-                                        <CInputFile
-                                            id="file-multiple-input"
-                                            name="file-multiple-input"
-                                            multiple
-                                            custom
-                                        />
-                                        <CLabel
-                                            htmlFor="file-multiple-input"
-                                            variant="custom-file"
-                                        >
-                                            Choose Files...
-                                        </CLabel>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CLabel col md={3}>
-                                        Custom file input
-                                    </CLabel>
-                                    <CCol xs="12" md="9">
-                                        <CInputFile
-                                            custom
-                                            id="custom-file-input"
-                                        />
-                                        <CLabel
-                                            htmlFor="custom-file-input"
-                                            variant="custom-file"
-                                        >
-                                            Choose file...
-                                        </CLabel>
                                     </CCol>
                                 </CFormGroup>
                             </CForm>
                         </CCardBody>
                         <CCardFooter>
-                            <CButton type="submit" size="sm" color="primary">
-                                <CIcon name="cil-scrubber" /> Submit
+                            <CButton
+                                className="mr-1"
+                                type="submit"
+                                size="sm"
+                                color="primary"
+                            >
+                                <CIcon name="cil-scrubber" /> 학습개입 대상
+                                정하기
                             </CButton>
-                            <CButton type="reset" size="sm" color="danger">
-                                <CIcon name="cil-ban" /> Reset
+                            <CButton
+                                className="mr-1"
+                                type="reset"
+                                size="sm"
+                                color="danger"
+                            >
+                                <CIcon name="cil-ban" /> 학습개입 시점
+                                초기화하기
+                            </CButton>
+                        </CCardFooter>
+                    </CCard>
+                </CCol>
+            </CRow>
+            <CRow>
+                <CCol xs="12" md="12">
+                    <CCard>
+                        <CCardHeader>
+                            학습개입 대상 정하기
+                            <small> recipient</small>
+                        </CCardHeader>
+                        <CCardBody>
+                            <CForm
+                                action=""
+                                method="post"
+                                encType="multipart/form-data"
+                                className="form-horizontal"
+                            >
+                                <CFormGroup row>
+                                    <CCol md="3">
+                                        <CLabel htmlFor="text-input">
+                                            개입 대상
+                                        </CLabel>
+                                    </CCol>
+                                    <CCol xs="12" md="9">
+                                        <CCard>
+                                            <CCardBody>
+                                                <CButton
+                                                    className="mr-1"
+                                                    color="secondary"
+                                                >
+                                                    김현도{" "}
+                                                    <CBadge
+                                                        color="primary"
+                                                        shape="pill"
+                                                        style={{
+                                                            position: "static",
+                                                        }}
+                                                    >
+                                                        X
+                                                    </CBadge>
+                                                </CButton>
+                                                <CButton
+                                                    className="mr-1"
+                                                    color="secondary"
+                                                >
+                                                    정동훈{" "}
+                                                    <CBadge
+                                                        color="primary"
+                                                        shape="pill"
+                                                        style={{
+                                                            position: "static",
+                                                        }}
+                                                    >
+                                                        X
+                                                    </CBadge>
+                                                </CButton>
+                                            </CCardBody>
+                                        </CCard>
+                                    </CCol>
+                                </CFormGroup>
+                            </CForm>
+                        </CCardBody>
+                        <CCardFooter>
+                            <CButton
+                                className="mr-1"
+                                type="submit"
+                                size="sm"
+                                color="primary"
+                            >
+                                <CIcon name="cil-scrubber" /> 학습개입 내용
+                                정하기
+                            </CButton>
+                            <CButton
+                                className="mr-1"
+                                type="reset"
+                                size="sm"
+                                color="danger"
+                            >
+                                <CIcon name="cil-ban" /> 학습개입 대상
+                                초기화하기
                             </CButton>
                         </CCardFooter>
                     </CCard>
@@ -1661,7 +505,7 @@ const InterventionDesign = () => {
                     <CCard>
                         <CCardHeader>
                             학습개입 내용 정하기
-                            <small> Content</small>
+                            <small> content</small>
                         </CCardHeader>
                         <CCardBody>
                             <CForm
@@ -1672,103 +516,30 @@ const InterventionDesign = () => {
                             >
                                 <CFormGroup row>
                                     <CCol md="3">
-                                        <CLabel>Static</CLabel>
-                                    </CCol>
-                                    <CCol xs="12" md="9">
-                                        <p className="form-control-static">
-                                            Username
-                                        </p>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
                                         <CLabel htmlFor="text-input">
-                                            Text Input
+                                            제목
                                         </CLabel>
                                     </CCol>
-                                    <CCol xs="12" md="9">
+                                    <CCol xs="12" md="7">
                                         <CInput
                                             id="text-input"
                                             name="text-input"
-                                            placeholder="Text"
+                                            placeholder="학습개입 제목 작성"
                                         />
                                         <CFormText>
-                                            This is a help text
+                                            제목을 입력하세요.
                                         </CFormText>
                                     </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel htmlFor="email-input">
-                                            Email Input
-                                        </CLabel>
-                                    </CCol>
-                                    <CCol xs="12" md="9">
-                                        <CInput
-                                            type="email"
-                                            id="email-input"
-                                            name="email-input"
-                                            placeholder="Enter Email"
-                                            autoComplete="email"
-                                        />
-                                        <CFormText className="help-block">
-                                            Please enter your email
-                                        </CFormText>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel htmlFor="password-input">
-                                            Password
-                                        </CLabel>
-                                    </CCol>
-                                    <CCol xs="12" md="9">
-                                        <CInput
-                                            type="password"
-                                            id="password-input"
-                                            name="password-input"
-                                            placeholder="Password"
-                                            autoComplete="new-password"
-                                        />
-                                        <CFormText className="help-block">
-                                            Please enter a complex password
-                                        </CFormText>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel htmlFor="date-input">
-                                            Date Input
-                                        </CLabel>
-                                    </CCol>
-                                    <CCol xs="12" md="9">
-                                        <CInput
-                                            type="date"
-                                            id="date-input"
-                                            name="date-input"
-                                            placeholder="date"
-                                        />
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel htmlFor="disabled-input">
-                                            Disabled Input
-                                        </CLabel>
-                                    </CCol>
-                                    <CCol xs="12" md="9">
-                                        <CInput
-                                            id="disabled-input"
-                                            name="disabled-input"
-                                            placeholder="Disabled"
-                                            disabled
-                                        />
+                                    <CCol xs="3" md="2">
+                                        <CButton color="secondary">
+                                            대체 문자열 입력
+                                        </CButton>
                                     </CCol>
                                 </CFormGroup>
                                 <CFormGroup row>
                                     <CCol md="3">
                                         <CLabel htmlFor="textarea-input">
-                                            Textarea
+                                            내용
                                         </CLabel>
                                     </CCol>
                                     <CCol xs="12" md="9">
@@ -1776,96 +547,18 @@ const InterventionDesign = () => {
                                             name="textarea-input"
                                             id="textarea-input"
                                             rows="9"
-                                            placeholder="Content..."
+                                            placeholder="학습개입 내용 작성"
                                         />
                                     </CCol>
                                 </CFormGroup>
                                 <CFormGroup row>
                                     <CCol md="3">
-                                        <CLabel htmlFor="select">Select</CLabel>
+                                        <CLabel htmlFor="textarea-input"></CLabel>
                                     </CCol>
                                     <CCol xs="12" md="9">
-                                        <CSelect
-                                            custom
-                                            name="select"
-                                            id="select"
-                                        >
-                                            <option value="0">
-                                                Please select
-                                            </option>
-                                            <option value="1">Option #1</option>
-                                            <option value="2">Option #2</option>
-                                            <option value="3">Option #3</option>
-                                        </CSelect>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel htmlFor="selectLg">
-                                            Select Large
-                                        </CLabel>
-                                    </CCol>
-                                    <CCol xs="12" md="9" size="lg">
-                                        <CSelect
-                                            custom
-                                            size="lg"
-                                            name="selectLg"
-                                            id="selectLg"
-                                        >
-                                            <option value="0">
-                                                Please select
-                                            </option>
-                                            <option value="1">Option #1</option>
-                                            <option value="2">Option #2</option>
-                                            <option value="3">Option #3</option>
-                                        </CSelect>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel htmlFor="selectSm">
-                                            Select Small
-                                        </CLabel>
-                                    </CCol>
-                                    <CCol xs="12" md="9">
-                                        <CSelect
-                                            custom
-                                            size="sm"
-                                            name="selectSm"
-                                            id="SelectLm"
-                                        >
-                                            <option value="0">
-                                                Please select
-                                            </option>
-                                            <option value="1">Option #1</option>
-                                            <option value="2">Option #2</option>
-                                            <option value="3">Option #3</option>
-                                            <option value="4">Option #4</option>
-                                            <option value="5">Option #5</option>
-                                        </CSelect>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel htmlFor="disabledSelect">
-                                            Disabled Select
-                                        </CLabel>
-                                    </CCol>
-                                    <CCol xs="12" md="9">
-                                        <CSelect
-                                            custom
-                                            name="disabledSelect"
-                                            id="disabledSelect"
-                                            disabled
-                                            autoComplete="name"
-                                        >
-                                            <option value="0">
-                                                Please select
-                                            </option>
-                                            <option value="1">Option #1</option>
-                                            <option value="2">Option #2</option>
-                                            <option value="3">Option #3</option>
-                                        </CSelect>
+                                        <CButton color="secondary">
+                                            대체 문자열 입력
+                                        </CButton>
                                     </CCol>
                                 </CFormGroup>
                                 <CFormGroup row>
@@ -1874,326 +567,58 @@ const InterventionDesign = () => {
                                         sm="3"
                                         className="col-form-label"
                                     >
-                                        Switch checkboxes
+                                        LMS 개입
                                     </CCol>
                                     <CCol sm="9">
                                         <CSwitch
-                                            className="mr-1"
-                                            color="primary"
+                                            className={"mx-1"}
+                                            color={"primary"}
+                                            labelOn={"\u2713"}
+                                            labelOff={"\u2715"}
+                                            size={"lg"}
                                             defaultChecked
                                         />
+                                    </CCol>
+                                </CFormGroup>
+                                <CFormGroup row>
+                                    <CCol
+                                        tag="label"
+                                        sm="3"
+                                        className="col-form-label"
+                                    >
+                                        EMAIL 개입
+                                    </CCol>
+                                    <CCol sm="9">
                                         <CSwitch
-                                            className="mr-1"
-                                            color="success"
+                                            className={"mx-1"}
+                                            color={"primary"}
+                                            labelOn={"\u2713"}
+                                            labelOff={"\u2715"}
+                                            size={"lg"}
                                             defaultChecked
-                                            variant="outline"
                                         />
-                                        <CSwitch
-                                            className="mr-1"
-                                            color="warning"
-                                            defaultChecked
-                                            variant="opposite"
-                                        />
-                                        <CSwitch
-                                            className="mr-1"
-                                            color="danger"
-                                            defaultChecked
-                                            shape="pill"
-                                        />
-                                        <CSwitch
-                                            className="mr-1"
-                                            color="info"
-                                            defaultChecked
-                                            shape="pill"
-                                            variant="outline"
-                                        />
-                                        <CSwitch
-                                            className="mr-1"
-                                            color="dark"
-                                            defaultChecked
-                                            shape="pill"
-                                            variant="opposite"
-                                        />
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel>Radios</CLabel>
-                                    </CCol>
-                                    <CCol md="9">
-                                        <CFormGroup variant="checkbox">
-                                            <CInputRadio
-                                                className="form-check-input"
-                                                id="radio1"
-                                                name="radios"
-                                                value="option1"
-                                            />
-                                            <CLabel
-                                                variant="checkbox"
-                                                htmlFor="radio1"
-                                            >
-                                                Option 1
-                                            </CLabel>
-                                        </CFormGroup>
-                                        <CFormGroup variant="checkbox">
-                                            <CInputRadio
-                                                className="form-check-input"
-                                                id="radio2"
-                                                name="radios"
-                                                value="option2"
-                                            />
-                                            <CLabel
-                                                variant="checkbox"
-                                                htmlFor="radio2"
-                                            >
-                                                Option 2
-                                            </CLabel>
-                                        </CFormGroup>
-                                        <CFormGroup variant="checkbox">
-                                            <CInputRadio
-                                                className="form-check-input"
-                                                id="radio3"
-                                                name="radios"
-                                                value="option3"
-                                            />
-                                            <CLabel
-                                                variant="checkbox"
-                                                htmlFor="radio3"
-                                            >
-                                                Option 3
-                                            </CLabel>
-                                        </CFormGroup>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel>Inline Radios</CLabel>
-                                    </CCol>
-                                    <CCol md="9">
-                                        <CFormGroup
-                                            variant="custom-radio"
-                                            inline
-                                        >
-                                            <CInputRadio
-                                                custom
-                                                id="inline-radio1"
-                                                name="inline-radios"
-                                                value="option1"
-                                            />
-                                            <CLabel
-                                                variant="custom-checkbox"
-                                                htmlFor="inline-radio1"
-                                            >
-                                                One
-                                            </CLabel>
-                                        </CFormGroup>
-                                        <CFormGroup
-                                            variant="custom-radio"
-                                            inline
-                                        >
-                                            <CInputRadio
-                                                custom
-                                                id="inline-radio2"
-                                                name="inline-radios"
-                                                value="option2"
-                                            />
-                                            <CLabel
-                                                variant="custom-checkbox"
-                                                htmlFor="inline-radio2"
-                                            >
-                                                Two
-                                            </CLabel>
-                                        </CFormGroup>
-                                        <CFormGroup
-                                            variant="custom-radio"
-                                            inline
-                                        >
-                                            <CInputRadio
-                                                custom
-                                                id="inline-radio3"
-                                                name="inline-radios"
-                                                value="option3"
-                                            />
-                                            <CLabel
-                                                variant="custom-checkbox"
-                                                htmlFor="inline-radio3"
-                                            >
-                                                Three
-                                            </CLabel>
-                                        </CFormGroup>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel>Checkboxes</CLabel>
-                                    </CCol>
-                                    <CCol md="9">
-                                        <CFormGroup
-                                            variant="checkbox"
-                                            className="checkbox"
-                                        >
-                                            <CInputCheckbox
-                                                id="checkbox1"
-                                                name="checkbox1"
-                                                value="option1"
-                                            />
-                                            <CLabel
-                                                variant="checkbox"
-                                                className="form-check-label"
-                                                htmlFor="checkbox1"
-                                            >
-                                                Option 1
-                                            </CLabel>
-                                        </CFormGroup>
-                                        <CFormGroup
-                                            variant="checkbox"
-                                            className="checkbox"
-                                        >
-                                            <CInputCheckbox
-                                                id="checkbox2"
-                                                name="checkbox2"
-                                                value="option2"
-                                            />
-                                            <CLabel
-                                                variant="checkbox"
-                                                className="form-check-label"
-                                                htmlFor="checkbox2"
-                                            >
-                                                Option 2
-                                            </CLabel>
-                                        </CFormGroup>
-                                        <CFormGroup
-                                            variant="checkbox"
-                                            className="checkbox"
-                                        >
-                                            <CInputCheckbox
-                                                id="checkbox3"
-                                                name="checkbox3"
-                                                value="option3"
-                                            />
-                                            <CLabel
-                                                variant="checkbox"
-                                                className="form-check-label"
-                                                htmlFor="checkbox3"
-                                            >
-                                                Option 3
-                                            </CLabel>
-                                        </CFormGroup>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel>Inline Checkboxes</CLabel>
-                                    </CCol>
-                                    <CCol md="9">
-                                        <CFormGroup
-                                            variant="custom-checkbox"
-                                            inline
-                                        >
-                                            <CInputCheckbox
-                                                custom
-                                                id="inline-checkbox1"
-                                                name="inline-checkbox1"
-                                                value="option1"
-                                            />
-                                            <CLabel
-                                                variant="custom-checkbox"
-                                                htmlFor="inline-checkbox1"
-                                            >
-                                                One
-                                            </CLabel>
-                                        </CFormGroup>
-                                        <CFormGroup
-                                            variant="custom-checkbox"
-                                            inline
-                                        >
-                                            <CInputCheckbox
-                                                custom
-                                                id="inline-checkbox2"
-                                                name="inline-checkbox2"
-                                                value="option2"
-                                            />
-                                            <CLabel
-                                                variant="custom-checkbox"
-                                                htmlFor="inline-checkbox2"
-                                            >
-                                                Two
-                                            </CLabel>
-                                        </CFormGroup>
-                                        <CFormGroup
-                                            variant="custom-checkbox"
-                                            inline
-                                        >
-                                            <CInputCheckbox
-                                                custom
-                                                id="inline-checkbox3"
-                                                name="inline-checkbox3"
-                                                value="option3"
-                                            />
-                                            <CLabel
-                                                variant="custom-checkbox"
-                                                htmlFor="inline-checkbox3"
-                                            >
-                                                Three
-                                            </CLabel>
-                                        </CFormGroup>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CLabel col md="3" htmlFor="file-input">
-                                        File input
-                                    </CLabel>
-                                    <CCol xs="12" md="9">
-                                        <CInputFile
-                                            id="file-input"
-                                            name="file-input"
-                                        />
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CCol md="3">
-                                        <CLabel>Multiple File input</CLabel>
-                                    </CCol>
-                                    <CCol xs="12" md="9">
-                                        <CInputFile
-                                            id="file-multiple-input"
-                                            name="file-multiple-input"
-                                            multiple
-                                            custom
-                                        />
-                                        <CLabel
-                                            htmlFor="file-multiple-input"
-                                            variant="custom-file"
-                                        >
-                                            Choose Files...
-                                        </CLabel>
-                                    </CCol>
-                                </CFormGroup>
-                                <CFormGroup row>
-                                    <CLabel col md={3}>
-                                        Custom file input
-                                    </CLabel>
-                                    <CCol xs="12" md="9">
-                                        <CInputFile
-                                            custom
-                                            id="custom-file-input"
-                                        />
-                                        <CLabel
-                                            htmlFor="custom-file-input"
-                                            variant="custom-file"
-                                        >
-                                            Choose file...
-                                        </CLabel>
                                     </CCol>
                                 </CFormGroup>
                             </CForm>
                         </CCardBody>
                         <CCardFooter>
-                            <CButton type="submit" size="sm" color="primary">
-                                <CIcon name="cil-scrubber" /> Submit
+                            <CButton
+                                href="/#/interventionlist"
+                                className="mr-1"
+                                type="submit"
+                                size="sm"
+                                color="primary"
+                            >
+                                <CIcon name="cil-scrubber" /> 학습개입 활성화
                             </CButton>
-                            <CButton type="reset" size="sm" color="danger">
-                                <CIcon name="cil-ban" /> Reset
+                            <CButton
+                                className="mr-1"
+                                type="reset"
+                                size="sm"
+                                color="danger"
+                            >
+                                <CIcon name="cil-ban" /> 학습개입 내용
+                                초기화하기
                             </CButton>
                         </CCardFooter>
                     </CCard>

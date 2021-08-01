@@ -14,7 +14,6 @@ import {
     CModalTitle,
     CModalBody,
     CModalFooter,
-    CCardFooter,
 } from "@coreui/react";
 
 import { CChartLine, CChartRadar } from "@coreui/react-chartjs";
@@ -22,23 +21,7 @@ import { CChartLine, CChartRadar } from "@coreui/react-chartjs";
 import studentsData from "./StudentsData";
 import studentInterventionsData from "./StudentInterventionsData";
 
-const getBadge = (status) => {
-    switch (status) {
-        case "Active":
-            return "success";
-        case "Inactive":
-            return "secondary";
-        case "Pending":
-            return "warning";
-        case "Banned":
-            return "danger";
-        default:
-            return "primary";
-    }
-};
-
 const LearningAnalytics = () => {
-    // const history = useHistory();
     const queryPage = useLocation().search.match(/page=([0-9]+)/, "");
     const currentPage = Number(queryPage && queryPage[1] ? queryPage[1] : 1);
     const [page, setPage] = useState(currentPage);
@@ -169,9 +152,6 @@ const LearningAnalytics = () => {
                                     <CButton className="mr-1" color="primary">
                                         출석
                                     </CButton>
-                                    <CButton className="mr-1" color="primary">
-                                        출석
-                                    </CButton>
                                 </CModalBody>
                             </CCard>
                             <CModalBody>
@@ -235,12 +215,12 @@ const LearningAnalytics = () => {
                                                     enabled: true,
                                                 },
                                                 scales: {
-                                                    angleLines: {
-                                                        display: false,
-                                                    },
                                                     r: {
-                                                        min: 0,
-                                                        max: 100,
+                                                        angleLines: {
+                                                            display: false,
+                                                        },
+                                                        min: 0.0,
+                                                        max: 100.0,
                                                     },
                                                 },
                                             }}

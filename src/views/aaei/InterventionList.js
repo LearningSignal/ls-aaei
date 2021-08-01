@@ -12,21 +12,6 @@ import {
 
 import usersData from "../users/UsersData";
 
-const getBadge = (status) => {
-    switch (status) {
-        case "Active":
-            return "success";
-        case "Inactive":
-            return "secondary";
-        case "Pending":
-            return "warning";
-        case "Banned":
-            return "danger";
-        default:
-            return "primary";
-    }
-};
-
 const InterventionList = () => {
     const history = useHistory();
     const queryPage = useLocation().search.match(/page=([0-9]+)/, "");
@@ -60,15 +45,7 @@ const InterventionList = () => {
                             onRowClick={(item) =>
                                 history.push(`/learninganalytics/${item.id}`)
                             }
-                            scopedSlots={{
-                                status: (item) => (
-                                    <td>
-                                        <CBadge color={getBadge(item.status)}>
-                                            {item.status}
-                                        </CBadge>
-                                    </td>
-                                ),
-                            }}
+                            scopedSlots={{}}
                         />
                     </CCardBody>
                 </CCard>
