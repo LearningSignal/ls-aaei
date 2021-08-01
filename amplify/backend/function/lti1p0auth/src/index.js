@@ -46,11 +46,11 @@ var handler = (exports.handler = function handler(event, context, callback) {
     event.body = b;
 
     console.log(
-        "=================================================================="
+        "==============================modified event===================================="
     );
     console.log(event);
     console.log(
-        "=================================================================="
+        "==============================modified event===================================="
     );
 
     // Validate the lti launch
@@ -59,16 +59,23 @@ var handler = (exports.handler = function handler(event, context, callback) {
         lti_shared_secret
     );
 
+    var queryString = Object.keys(b)
+        .map(function (key) {
+            return key + "=" + b[key];
+        })
+        .join("&");
+
     const response = {
         statusCode: 301,
         headers: {
-            Location: "https://master.d1q0eq3lbgake7.amplifyapp.com/",
+            Location:
+                "https://master.d1q0eq3lbgake7.amplifyapp.com?" + queryString,
         },
     };
 
     provider.valid_request(event, function (error, isValid) {
-        console.log(isValid);
-        console.log(error);
+        console.log("isValid: " + isValid);
+        console.log("error: " + error);
         callback(null, response);
     });
 });
