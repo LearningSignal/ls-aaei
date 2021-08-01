@@ -44,7 +44,8 @@ const TheHeader = () => {
                 onClick={toggleSidebar}
             />
             <CHeaderBrand className="mx-auto d-lg-none" to="/">
-                <CIcon name="logo" height="48" alt="Logo" />
+                {/* <CIcon name="logo" height="48" alt="Logo" /> */}
+                <h2>주식회사 러닝시그널 로고</h2>
             </CHeaderBrand>
 
             <CHeaderNav className="d-md-down-none mr-auto">
@@ -60,7 +61,7 @@ const TheHeader = () => {
                 </CHeaderNavItem>
                 <CHeaderNavItem className="px-3">
                     <CHeaderNavLink to="/interventionlist">
-                        학습개입 활성화
+                        학습개입 목록
                     </CHeaderNavLink>
                 </CHeaderNavItem>
             </CHeaderNav>

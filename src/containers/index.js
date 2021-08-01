@@ -7,15 +7,17 @@ import TheHeaderDropdownNotif from './TheHeaderDropdownNotif'
 import TheHeaderDropdownTasks from './TheHeaderDropdownTasks'
 import TheLayout from './TheLayout'
 import TheSidebar from './TheSidebar'
+import TheSidebarAAEI from "./TheSidebarAAEI";
 
 export {
-  TheContent,
-  TheFooter,
-  TheHeader,
-  TheHeaderDropdown,
-  TheHeaderDropdownMssg,
-  TheHeaderDropdownNotif,
-  TheHeaderDropdownTasks,
-  TheLayout,
-  TheSidebar
-}
+    TheContent,
+    TheFooter,
+    TheHeader,
+    TheHeaderDropdown,
+    TheHeaderDropdownMssg,
+    TheHeaderDropdownNotif,
+    TheHeaderDropdownTasks,
+    TheLayout,
+    TheSidebar,
+    TheSidebarAAEI,
+};

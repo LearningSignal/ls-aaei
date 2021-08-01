@@ -1,9 +1,8 @@
-const studentInterventionsData = [
+const studentsInterventionsData = [
     {
         id: 0,
         studentName: "정동훈",
         interventionName: "수업 시작",
-        interventionDescription: "수업 시작 독려 메시지",
         lmsYn: "Y",
         emailYn: "Y",
         smsYn: "N",
@@ -13,16 +12,26 @@ const studentInterventionsData = [
     },
     {
         id: 1,
-        studentName: "정동훈",
+        studentName: "김현도",
         interventionName: "과제 미제출 공지",
-        interventionDescription: "과제 미제출자 공지",
         lmsYn: "Y",
         emailYn: "Y",
         smsYn: "N",
         snsYn: "N",
         feed: "N",
-        date: "2021/04/15",
+        date: "2021/03/02",
+    },
+    {
+        id: 2,
+        studentName: "류호경",
+        interventionName: "과제 미제출 공지",
+        lmsYn: "Y",
+        emailYn: "Y",
+        smsYn: "N",
+        snsYn: "N",
+        feed: "Y",
+        date: "2021/03/02",
     },
 ];
 
-export default studentInterventionsData;
+export default studentsInterventionsData;

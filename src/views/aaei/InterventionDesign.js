@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
     CButton,
     CCard,
@@ -17,12 +18,27 @@ import {
     CRow,
     CSwitch,
     CBadge,
+    CModalBody,
+    CModal,
+    CModalHeader,
+    CModalTitle,
+    CModalFooter,
+    CDataTable,
 } from "@coreui/react";
 import CIcon from "@coreui/icons-react";
+import interventionsListData from "./InterventionsListData";
 
 const InterventionDesign = () => {
     // const [collapsed, setCollapsed] = React.useState(true);
     // const [showElements, setShowElements] = React.useState(true);
+
+    const [modal, setModal] = useState(false);
+    const [modalTitle, setModalTitle] = useState("");
+
+    function viewModal(title) {
+        setModal(true);
+        setModalTitle(title);
+    }
 
     return (
         <>
@@ -89,6 +105,7 @@ const InterventionDesign = () => {
                                 className="mr-1"
                                 size="sm"
                                 color="info"
+                                onClick={() => viewModal("기존 개입 불러오기")}
                             >
                                 <CIcon name="cil-scrubber" /> 기존 개입 불러오기
                             </CButton>
@@ -600,6 +617,81 @@ const InterventionDesign = () => {
                                     </CCol>
                                 </CFormGroup>
                             </CForm>
+                            <CModal
+                                show={modal}
+                                onClose={() => setModal(!modal)}
+                                size="lg"
+                            >
+                                <CModalHeader closeButton>
+                                    <CModalTitle>{modalTitle}</CModalTitle>{" "}
+                                </CModalHeader>
+                                <CModalBody>
+                                    <CCard>
+                                        <CCardHeader>학습개입 내역</CCardHeader>
+                                        <CCardBody>
+                                            <CDataTable
+                                                items={interventionsListData}
+                                                sorter="{{ external: true, resetable: true }}"
+                                                fields={[
+                                                    {
+                                                        key: "name",
+                                                        label: "이름",
+                                                        sorter: true,
+                                                        _classes:
+                                                            "font-weight-bold",
+                                                    },
+                                                    {
+                                                        key: "description",
+                                                        label: "설명",
+                                                        sorter: false,
+                                                    },
+                                                    {
+                                                        key: "lmsYn",
+                                                        label: "LMS 개입",
+                                                        sorter: false,
+                                                    },
+                                                    {
+                                                        key: "emailYn",
+                                                        label: "EMAIL 개입",
+                                                        sorter: false,
+                                                    },
+                                                    {
+                                                        key: "type",
+                                                        label: "시점",
+                                                        sorter: true,
+                                                    },
+                                                    {
+                                                        key: "date",
+                                                        label: "최근 개입 날짜",
+                                                        sorter: true,
+                                                    },
+                                                ]}
+                                                scopedSlots={{
+                                                    name: (item) => (
+                                                        <td
+                                                            onClick={() =>
+                                                                setModal(!modal)
+                                                            }
+                                                        >
+                                                            <Link to="#">
+                                                                {item.name}
+                                                            </Link>
+                                                        </td>
+                                                    ),
+                                                }}
+                                            />
+                                        </CCardBody>
+                                    </CCard>
+                                </CModalBody>
+                                <CModalFooter>
+                                    <CButton
+                                        color="secondary"
+                                        onClick={() => setModal(!modal)}
+                                    >
+                                        닫기
+                                    </CButton>
+                                </CModalFooter>
+                            </CModal>
                         </CCardBody>
                         <CCardFooter>
                             <CButton

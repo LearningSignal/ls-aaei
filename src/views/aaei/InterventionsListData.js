@@ -1,37 +1,43 @@
-const studentInterventionsData = [
+const interventionsListData = [
     {
         id: 0,
         name: "수업 시작",
+        description: "수업 시작 독려 메시지",
         lmsYn: "Y",
         emailYn: "Y",
         smsYn: "N",
         snsYn: "N",
         feed: "Y",
+        type: "즉시",
         state: "COMPLETE",
         date: "2021/03/02",
     },
     {
         id: 1,
         name: "과제 미제출 공지",
+        description: "과제 미제출자 공지",
         lmsYn: "Y",
         emailYn: "Y",
         smsYn: "N",
         snsYn: "N",
         feed: "N",
-        state: "ACTIVE",
+        type: "특정 날짜에",
+        state: "COMPLETE",
         date: "2021/04/15",
     },
     {
         id: 2,
         name: "출석 경고",
+        description: "출석율 저조 학생들에게 경고",
         lmsYn: "Y",
         emailYn: "Y",
         smsYn: "N",
         snsYn: "N",
         feed: "N",
+        type: "주기적으로",
         state: "ACTIVE",
-        date: "2021/04/15",
+        date: "2021/04/28",
     },
 ];
 
-export default studentInterventionsData;
+export default interventionsListData;

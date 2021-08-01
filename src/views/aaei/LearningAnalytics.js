@@ -32,7 +32,6 @@ const LearningAnalytics = () => {
     function viewModal(item) {
         setModal(true);
         setModalTitle(item.name);
-        console.log(item);
     }
 
     useEffect(() => {
@@ -306,6 +305,11 @@ const LearningAnalytics = () => {
                                                         "font-weight-bold",
                                                 },
                                                 {
+                                                    key: "interventionDescription",
+                                                    label: "설명",
+                                                    sorter: false,
+                                                },
+                                                {
                                                     key: "lmsYn",
                                                     label: "LMS 메시지 유무",
                                                     sorter: false,
@@ -315,16 +319,16 @@ const LearningAnalytics = () => {
                                                     label: "Email 유무",
                                                     sorter: false,
                                                 },
-                                                {
-                                                    key: "smsYn",
-                                                    label: "SMS 유무",
-                                                    sorter: false,
-                                                },
-                                                {
-                                                    key: "snsYn",
-                                                    label: "SNS 유무",
-                                                    sorter: false,
-                                                },
+                                                // {
+                                                //     key: "smsYn",
+                                                //     label: "SMS 유무",
+                                                //     sorter: false,
+                                                // },
+                                                // {
+                                                //     key: "snsYn",
+                                                //     label: "SNS 유무",
+                                                //     sorter: false,
+                                                // },
                                                 {
                                                     key: "date",
                                                     label: "보낸 날짜",
