@@ -632,6 +632,7 @@ const InterventionDesign = () => {
                                             <CDataTable
                                                 items={interventionsListData}
                                                 sorter="{{ external: true, resetable: true }}"
+                                                size="sm"
                                                 fields={[
                                                     {
                                                         key: "name",

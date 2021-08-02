@@ -87,6 +87,11 @@ const InterventionList = () => {
                                     label: "상태",
                                     sorter: true,
                                 },
+                                {
+                                    key: "modification",
+                                    label: "",
+                                    sorter: false,
+                                },
                             ]}
                             hover
                             scopedSlots={{
@@ -100,6 +105,16 @@ const InterventionList = () => {
                                         <CBadge color={getBadge(item.state)}>
                                             {item.state}
                                         </CBadge>
+                                    </td>
+                                ),
+                                modification: (item) => (
+                                    <td>
+                                        <Link to="/interventiondesign">
+                                            수정
+                                        </Link>
+                                        {/* <CBadge color={getBadge(item.state)}>
+                                            {item.state}
+                                        </CBadge> */}
                                     </td>
                                 ),
                             }}
@@ -119,6 +134,7 @@ const InterventionList = () => {
                                         <CDataTable
                                             items={studentsInterventionsData}
                                             sorter="{{ external: true, resetable: true }}"
+                                            size="sm"
                                             fields={[
                                                 {
                                                     key: "studentName",
@@ -137,16 +153,6 @@ const InterventionList = () => {
                                                     label: "Email 유무",
                                                     sorter: false,
                                                 },
-                                                // {
-                                                //     key: "smsYn",
-                                                //     label: "SMS 유무",
-                                                //     sorter: false,
-                                                // },
-                                                // {
-                                                //     key: "snsYn",
-                                                //     label: "SNS 유무",
-                                                //     sorter: false,
-                                                // },
                                                 {
                                                     key: "date",
                                                     label: "보낸 날짜",
