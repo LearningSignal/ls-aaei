@@ -18,7 +18,8 @@ enum YN {
 
 type Account
     @model
-    @key(name: "byLmsAccountByLmsType", fields: ["lmsAccountID", "lmsType"]) {
+    @key(name: "byLmsAccountByLmsType", fields: ["lmsAccountID", "lmsType"])
+    @auth(rules: [{ allow: private, provider: iam }]) {
     id: ID!
     lmsAccountID: ID!
     lmsType: String!
@@ -42,7 +43,8 @@ type AccountCourse
         name: "byAccountByTermByCourseName"
         fields: ["accountID", "term", "courseName"]
     )
-    @key(name: "byCourse", fields: ["courseID", "id"]) {
+    @key(name: "byCourse", fields: ["courseID", "id"])
+    @auth(rules: [{ allow: private, provider: iam }]) {
     id: ID!
     accountID: ID!
     courseID: ID!
@@ -58,7 +60,8 @@ type AccountCourse
 
 type Course
     @model
-    @key(name: "byLmsCourseByLmsType", fields: ["lmsCourseID", "lmsType"]) {
+    @key(name: "byLmsCourseByLmsType", fields: ["lmsCourseID", "lmsType"])
+    @auth(rules: [{ allow: private, provider: iam }]) {
     id: ID!
     lmsCourseID: ID!
     lmsType: String!
@@ -74,15 +77,20 @@ type Course
     historys: [History] @connection(keyName: "byCourse", fields: ["id"])
     historysByDate: [History]
         @connection(keyName: "byCourseByDate", fields: ["id"])
+    historyByInterventionByDate: [History]
+        @connection(keyName: "byCourseByInterventionByDate", fields: ["id"])
 }
 
-type Attribute @model @key(name: "byCourse", fields: ["courseID", "id"]) {
+type Attribute
+    @model
+    @key(name: "byCourse", fields: ["courseID", "id"])
+    @auth(rules: [{ allow: private, provider: iam }]) {
     id: ID!
     courseID: ID!
     status: String!
-    type: String! # 출석, 과제, 퀴즈, 토론, 자료, ...
+    type: String! # 출석, 과제, 퀴즈, 토론, 시험, ...
     name: String!
-    assignmentYN: YN!
+    scoreYN: YN!
     maxScore: Float
     datas: [Data] @connection(keyName: "byAttribute", fields: ["id"])
 }
@@ -90,13 +98,13 @@ type Attribute @model @key(name: "byCourse", fields: ["courseID", "id"]) {
 type Data
     @model
     @key(name: "byAttribute", fields: ["attributeID", "id"])
-    @key(name: "byEnrollment", fields: ["enrollmentID", "id"]) {
+    @key(name: "byEnrollment", fields: ["enrollmentID", "id"])
+    @auth(rules: [{ allow: private, provider: iam }]) {
     id: ID!
     attributeID: ID!
     enrollmentID: ID!
-    status: String! # submitted or unsubmitted
-    score: Float
-    completed_yn: YN!
+    status: String! # 과제, 퀴즈 등: submitted or unsubmitted, 출석: attended or absent. 토론 등에 더 필요할 경우 추가
+    value: String # 출석, 과제, 퀴즈, 토론, 시험, 등의 타입에 따라 값이 달라지므로 String으로 처리. 없을 수도 있음
     attribute: Attribute! @connection(fields: ["attributeID"])
     enrollment: Enrollment! @connection(fields: ["enrollmentID"])
 }
@@ -109,23 +117,27 @@ type Enrollment
     )
     @key(name: "byCourse", fields: ["courseID", "id"])
     @key(name: "byUser", fields: ["userID", "id"])
-    @key(name: "byUserByCourse", fields: ["userID", "courseID"]) {
+    @key(name: "byUserByCourse", fields: ["userID", "courseID"])
+    @auth(rules: [{ allow: private, provider: iam }]) {
     id: ID!
     userID: ID!
     courseID: ID!
     lmsEnrollmentId: ID!
-    lmsType: String!
+    lmsType: String! # 학생 (STUDENT), 교수자 (TEACHER), ...
     type: String!
     lastActivityAt: String
     riskProbability: Float
     status: String!
-    datas: [Data] @connection(keyName: "byEnrollment", fields: ["id"])
     feeds: [Feed] @connection(keyName: "byEnrollment", fields: ["id"])
+    feedsByDate: [Feed]
+        @connection(keyName: "byEnrollmentByDate", fields: ["id"])
+    datas: [Data] @connection(keyName: "byEnrollment", fields: ["id"])
 }
 
 type User
     @model
-    @key(name: "byLmsUserByLmsType", fields: ["lmsUserID", "lmsType"]) {
+    @key(name: "byLmsUserByLmsType", fields: ["lmsUserID", "lmsType"])
+    @auth(rules: [{ allow: private, provider: iam }]) {
     id: ID!
     lmsUserID: ID!
     lmsType: String!
@@ -149,10 +161,11 @@ type User
 type Intervention
     @model
     @key(name: "byUser", fields: ["creatorUserID", "id"])
-    @key(name: "byCourse", fields: ["courseID", "id"]) {
+    @key(name: "byCourse", fields: ["courseID", "id"])
+    @auth(rules: [{ allow: private, provider: iam }]) {
     id: ID!
-    courseID: ID!
     creatorUserID: ID!
+    courseID: ID!
     name: String!
     description: String
     condition: String # JSON 데이터
@@ -166,19 +179,25 @@ type Intervention
     cronTime: String
     status: String! # delete/active/inactive
     feeds: [Feed] @connection(keyName: "byIntervention", fields: ["id"])
-    historys: [History]
+    feedsByDate: [Feed]
+        @connection(keyName: "byInterventionByDate", fields: ["id"])
+    historys: [History] @connection(keyName: "byIntervention", fields: ["id"])
+    historysByDate: [History]
         @connection(keyName: "byInterventionByDate", fields: ["id"])
 }
 
 type Feed
     @model
     @key(name: "byEnrollment", fields: ["enrollmentID", "id"])
-    @key(name: "byIntervention", fields: ["interventionID", "id"]) {
+    @key(name: "byEnrollmentByDate", fields: ["enrollmentID", "date"])
+    @key(name: "byIntervention", fields: ["interventionID", "id"])
+    @key(name: "byInterventionByDate", fields: ["interventionID", "date"])
+    @auth(rules: [{ allow: private, provider: iam }]) {
     id: ID!
     enrollmentID: ID!
     interventionID: ID!
     feed: String!
-    type: String!
+    type: String! # 이메일, LMS 메시지, ...
     date: String!
 }
 
@@ -190,9 +209,11 @@ type History
         name: "byCourseByInterventionByDate"
         fields: ["courseID", "interventionID", "date"]
     )
+    @key(name: "byIntervention", fields: ["courseID", "id"])
     @key(name: "byInterventionByDate", fields: ["courseID", "date"])
     @key(name: "bySenderUserByDate", fields: ["senderUserID", "date"])
-    @key(name: "byRecipientUserByDate", fields: ["recipientUserID", "date"]) {
+    @key(name: "byRecipientUserByDate", fields: ["recipientUserID", "date"])
+    @auth(rules: [{ allow: private, provider: iam }]) {
     id: ID!
     courseID: ID!
     interventionID: ID!

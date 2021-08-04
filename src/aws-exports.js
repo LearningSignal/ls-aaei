@@ -5,7 +5,8 @@ const awsmobile = {
     "aws_project_region": "ap-northeast-2",
     "aws_appsync_graphqlEndpoint": "https://ips7abengfbl5p6omxmlztizw4.appsync-api.ap-northeast-2.amazonaws.com/graphql",
     "aws_appsync_region": "ap-northeast-2",
-    "aws_appsync_authenticationType": "AWS_IAM"
+    "aws_appsync_authenticationType": "AWS_IAM",
+    "aws_appsync_apiKey": "da2-l2w5oobhbrflpjpzgebg23gpay"
 };
 
 

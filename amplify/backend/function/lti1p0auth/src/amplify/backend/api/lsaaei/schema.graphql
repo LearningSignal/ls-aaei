@@ -80,9 +80,9 @@ type Attribute @model @key(name: "byCourse", fields: ["courseID", "id"]) {
     id: ID!
     courseID: ID!
     status: String!
-    type: String! # 출석, 과제, 퀴즈, 토론, 자료, ...
+    type: String! # 출석, 과제, 퀴즈, 토론, 시험, ...
     name: String!
-    assignmentYN: YN!
+    scoreYN: YN!
     maxScore: Float
     datas: [Data] @connection(keyName: "byAttribute", fields: ["id"])
 }
@@ -94,9 +94,8 @@ type Data
     id: ID!
     attributeID: ID!
     enrollmentID: ID!
-    status: String! # submitted or unsubmitted
-    score: Float
-    completed_yn: YN!
+    status: String! # 과제, 퀴즈 등: submitted or unsubmitted, 출석: attended or absent. 토론 등에 더 필요할 경우 추가
+    value: String # 출석, 과제, 퀴즈, 토론, 시험, 등의 타입에 따라 값이 달라지므로 String으로 처리. 없을 수도 있음
     attribute: Attribute! @connection(fields: ["attributeID"])
     enrollment: Enrollment! @connection(fields: ["enrollmentID"])
 }
@@ -114,7 +113,7 @@ type Enrollment
     userID: ID!
     courseID: ID!
     lmsEnrollmentId: ID!
-    lmsType: String!
+    lmsType: String! # 학생 (STUDENT), 교수자 (TEACHER), ...
     type: String!
     lastActivityAt: String
     riskProbability: Float
