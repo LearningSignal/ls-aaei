@@ -5,6 +5,7 @@ const TheFooter = () => {
   return (
       <CFooter fixed={false}>
           <div>
+              <span>&copy; 2021 </span>
               <a
                   href="https://dev.learningsignal.com"
                   target="_blank"
@@ -12,7 +13,6 @@ const TheFooter = () => {
               >
                   LearningSignal
               </a>
-              <span className="ml-1">&copy; 2021 Learning Analytics Lab.</span>
           </div>
           <div className="mfs-auto">
               <span className="mr-1">Powered by</span>

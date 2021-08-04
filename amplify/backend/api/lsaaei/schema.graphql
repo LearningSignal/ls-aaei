@@ -120,6 +120,7 @@ type Enrollment
     riskProbability: Float
     status: String!
     datas: [Data] @connection(keyName: "byEnrollment", fields: ["id"])
+    feeds: [Feed] @connection(keyName: "byEnrollment", fields: ["id"])
 }
 
 type User
@@ -164,8 +165,21 @@ type Intervention
     reserveTime: String
     cronTime: String
     status: String! # delete/active/inactive
+    feeds: [Feed] @connection(keyName: "byIntervention", fields: ["id"])
     historys: [History]
         @connection(keyName: "byInterventionByDate", fields: ["id"])
+}
+
+type Feed
+    @model
+    @key(name: "byEnrollment", fields: ["enrollmentID", "id"])
+    @key(name: "byIntervention", fields: ["interventionID", "id"]) {
+    id: ID!
+    enrollmentID: ID!
+    interventionID: ID!
+    feed: String!
+    type: String!
+    date: String!
 }
 
 type History
@@ -188,6 +202,5 @@ type History
     lmsYN: YN!
     smsYN: YN!
     snsYN: YN!
-    feed: String!
     date: String!
 }

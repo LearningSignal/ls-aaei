@@ -15,7 +15,7 @@
       "function": {
         "lti1p0auth": {
           "deploymentBucketName": "amplify-amplifyeb59394e1c874-staging-120702-deployment",
-          "s3Key": "amplify-builds/lti1p0auth-6d654d4f45647a47676e-build.zip"
+          "s3Key": "amplify-builds/lti1p0auth-435948745a344830386e-build.zip"
         }
       }
     }

@@ -522,7 +522,6 @@ export const onCreateCourse = /* GraphQL */ `
           lmsYN
           smsYN
           snsYN
-          feed
           date
           createdAt
           updatedAt
@@ -540,7 +539,6 @@ export const onCreateCourse = /* GraphQL */ `
           lmsYN
           smsYN
           snsYN
-          feed
           date
           createdAt
           updatedAt
@@ -641,7 +639,6 @@ export const onUpdateCourse = /* GraphQL */ `
           lmsYN
           smsYN
           snsYN
-          feed
           date
           createdAt
           updatedAt
@@ -659,7 +656,6 @@ export const onUpdateCourse = /* GraphQL */ `
           lmsYN
           smsYN
           snsYN
-          feed
           date
           createdAt
           updatedAt
@@ -760,7 +756,6 @@ export const onDeleteCourse = /* GraphQL */ `
           lmsYN
           smsYN
           snsYN
-          feed
           date
           createdAt
           updatedAt
@@ -778,7 +773,6 @@ export const onDeleteCourse = /* GraphQL */ `
           lmsYN
           smsYN
           snsYN
-          feed
           date
           createdAt
           updatedAt
@@ -910,6 +904,9 @@ export const onCreateData = /* GraphQL */ `
         datas {
           nextToken
         }
+        feeds {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -952,6 +949,9 @@ export const onUpdateData = /* GraphQL */ `
         riskProbability
         status
         datas {
+          nextToken
+        }
+        feeds {
           nextToken
         }
         createdAt
@@ -998,6 +998,9 @@ export const onDeleteData = /* GraphQL */ `
         datas {
           nextToken
         }
+        feeds {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -1026,6 +1029,19 @@ export const onCreateEnrollment = /* GraphQL */ `
           status
           score
           completed_yn
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      feeds {
+        items {
+          id
+          enrollmentID
+          interventionID
+          feed
+          type
+          date
           createdAt
           updatedAt
         }
@@ -1061,6 +1077,19 @@ export const onUpdateEnrollment = /* GraphQL */ `
         }
         nextToken
       }
+      feeds {
+        items {
+          id
+          enrollmentID
+          interventionID
+          feed
+          type
+          date
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -1086,6 +1115,19 @@ export const onDeleteEnrollment = /* GraphQL */ `
           status
           score
           completed_yn
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      feeds {
+        items {
+          id
+          enrollmentID
+          interventionID
+          feed
+          type
+          date
           createdAt
           updatedAt
         }
@@ -1174,7 +1216,6 @@ export const onCreateUser = /* GraphQL */ `
           lmsYN
           smsYN
           snsYN
-          feed
           date
           createdAt
           updatedAt
@@ -1192,7 +1233,6 @@ export const onCreateUser = /* GraphQL */ `
           lmsYN
           smsYN
           snsYN
-          feed
           date
           createdAt
           updatedAt
@@ -1282,7 +1322,6 @@ export const onUpdateUser = /* GraphQL */ `
           lmsYN
           smsYN
           snsYN
-          feed
           date
           createdAt
           updatedAt
@@ -1300,7 +1339,6 @@ export const onUpdateUser = /* GraphQL */ `
           lmsYN
           smsYN
           snsYN
-          feed
           date
           createdAt
           updatedAt
@@ -1390,7 +1428,6 @@ export const onDeleteUser = /* GraphQL */ `
           lmsYN
           smsYN
           snsYN
-          feed
           date
           createdAt
           updatedAt
@@ -1408,7 +1445,6 @@ export const onDeleteUser = /* GraphQL */ `
           lmsYN
           smsYN
           snsYN
-          feed
           date
           createdAt
           updatedAt
@@ -1438,6 +1474,19 @@ export const onCreateIntervention = /* GraphQL */ `
       reserveTime
       cronTime
       status
+      feeds {
+        items {
+          id
+          enrollmentID
+          interventionID
+          feed
+          type
+          date
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       historys {
         items {
           id
@@ -1449,7 +1498,6 @@ export const onCreateIntervention = /* GraphQL */ `
           lmsYN
           smsYN
           snsYN
-          feed
           date
           createdAt
           updatedAt
@@ -1479,6 +1527,19 @@ export const onUpdateIntervention = /* GraphQL */ `
       reserveTime
       cronTime
       status
+      feeds {
+        items {
+          id
+          enrollmentID
+          interventionID
+          feed
+          type
+          date
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       historys {
         items {
           id
@@ -1490,7 +1551,6 @@ export const onUpdateIntervention = /* GraphQL */ `
           lmsYN
           smsYN
           snsYN
-          feed
           date
           createdAt
           updatedAt
@@ -1520,6 +1580,19 @@ export const onDeleteIntervention = /* GraphQL */ `
       reserveTime
       cronTime
       status
+      feeds {
+        items {
+          id
+          enrollmentID
+          interventionID
+          feed
+          type
+          date
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       historys {
         items {
           id
@@ -1531,13 +1604,54 @@ export const onDeleteIntervention = /* GraphQL */ `
           lmsYN
           smsYN
           snsYN
-          feed
           date
           createdAt
           updatedAt
         }
         nextToken
       }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreateFeed = /* GraphQL */ `
+  subscription OnCreateFeed {
+    onCreateFeed {
+      id
+      enrollmentID
+      interventionID
+      feed
+      type
+      date
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateFeed = /* GraphQL */ `
+  subscription OnUpdateFeed {
+    onUpdateFeed {
+      id
+      enrollmentID
+      interventionID
+      feed
+      type
+      date
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteFeed = /* GraphQL */ `
+  subscription OnDeleteFeed {
+    onDeleteFeed {
+      id
+      enrollmentID
+      interventionID
+      feed
+      type
+      date
       createdAt
       updatedAt
     }
@@ -1555,7 +1669,6 @@ export const onCreateHistory = /* GraphQL */ `
       lmsYN
       smsYN
       snsYN
-      feed
       date
       createdAt
       updatedAt
@@ -1574,7 +1687,6 @@ export const onUpdateHistory = /* GraphQL */ `
       lmsYN
       smsYN
       snsYN
-      feed
       date
       createdAt
       updatedAt
@@ -1593,7 +1705,6 @@ export const onDeleteHistory = /* GraphQL */ `
       lmsYN
       smsYN
       snsYN
-      feed
       date
       createdAt
       updatedAt

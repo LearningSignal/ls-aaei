@@ -310,7 +310,6 @@ export const getCourse = /* GraphQL */ `
           lmsYN
           smsYN
           snsYN
-          feed
           date
           createdAt
           updatedAt
@@ -328,7 +327,6 @@ export const getCourse = /* GraphQL */ `
           lmsYN
           smsYN
           snsYN
-          feed
           date
           createdAt
           updatedAt
@@ -469,6 +467,9 @@ export const getData = /* GraphQL */ `
         datas {
           nextToken
         }
+        feeds {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -547,6 +548,19 @@ export const getEnrollment = /* GraphQL */ `
         }
         nextToken
       }
+      feeds {
+        items {
+          id
+          enrollmentID
+          interventionID
+          feed
+          type
+          date
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -570,6 +584,9 @@ export const listEnrollments = /* GraphQL */ `
         riskProbability
         status
         datas {
+          nextToken
+        }
+        feeds {
           nextToken
         }
         createdAt
@@ -657,7 +674,6 @@ export const getUser = /* GraphQL */ `
           lmsYN
           smsYN
           snsYN
-          feed
           date
           createdAt
           updatedAt
@@ -675,7 +691,6 @@ export const getUser = /* GraphQL */ `
           lmsYN
           smsYN
           snsYN
-          feed
           date
           createdAt
           updatedAt
@@ -745,6 +760,19 @@ export const getIntervention = /* GraphQL */ `
       reserveTime
       cronTime
       status
+      feeds {
+        items {
+          id
+          enrollmentID
+          interventionID
+          feed
+          type
+          date
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       historys {
         items {
           id
@@ -756,7 +784,6 @@ export const getIntervention = /* GraphQL */ `
           lmsYN
           smsYN
           snsYN
-          feed
           date
           createdAt
           updatedAt
@@ -791,9 +818,47 @@ export const listInterventions = /* GraphQL */ `
         reserveTime
         cronTime
         status
+        feeds {
+          nextToken
+        }
         historys {
           nextToken
         }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getFeed = /* GraphQL */ `
+  query GetFeed($id: ID!) {
+    getFeed(id: $id) {
+      id
+      enrollmentID
+      interventionID
+      feed
+      type
+      date
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listFeeds = /* GraphQL */ `
+  query ListFeeds(
+    $filter: ModelFeedFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listFeeds(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        enrollmentID
+        interventionID
+        feed
+        type
+        date
         createdAt
         updatedAt
       }
@@ -813,7 +878,6 @@ export const getHistory = /* GraphQL */ `
       lmsYN
       smsYN
       snsYN
-      feed
       date
       createdAt
       updatedAt
@@ -837,7 +901,6 @@ export const listHistories = /* GraphQL */ `
         lmsYN
         smsYN
         snsYN
-        feed
         date
         createdAt
         updatedAt
