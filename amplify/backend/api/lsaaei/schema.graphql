@@ -19,7 +19,7 @@ enum YN {
 type Account
     @model
     @key(name: "byLmsAccountByLmsType", fields: ["lmsAccountID", "lmsType"])
-    @auth(rules: [{ allow: private, provider: iam }]) {
+    @auth(rules: [{ allow: public, provider: iam }]) {
     id: ID!
     lmsAccountID: ID!
     lmsType: String!
@@ -44,7 +44,7 @@ type AccountCourse
         fields: ["accountID", "term", "courseName"]
     )
     @key(name: "byCourse", fields: ["courseID", "id"])
-    @auth(rules: [{ allow: private, provider: iam }]) {
+    @auth(rules: [{ allow: public, provider: iam }]) {
     id: ID!
     accountID: ID!
     courseID: ID!
@@ -61,7 +61,7 @@ type AccountCourse
 type Course
     @model
     @key(name: "byLmsCourseByLmsType", fields: ["lmsCourseID", "lmsType"])
-    @auth(rules: [{ allow: private, provider: iam }]) {
+    @auth(rules: [{ allow: public, provider: iam }]) {
     id: ID!
     lmsCourseID: ID!
     lmsType: String!
@@ -84,7 +84,7 @@ type Course
 type Attribute
     @model
     @key(name: "byCourse", fields: ["courseID", "id"])
-    @auth(rules: [{ allow: private, provider: iam }]) {
+    @auth(rules: [{ allow: public, provider: iam }]) {
     id: ID!
     courseID: ID!
     status: String!
@@ -99,7 +99,7 @@ type Data
     @model
     @key(name: "byAttribute", fields: ["attributeID", "id"])
     @key(name: "byEnrollment", fields: ["enrollmentID", "id"])
-    @auth(rules: [{ allow: private, provider: iam }]) {
+    @auth(rules: [{ allow: public, provider: iam }]) {
     id: ID!
     attributeID: ID!
     enrollmentID: ID!
@@ -118,7 +118,7 @@ type Enrollment
     @key(name: "byCourse", fields: ["courseID", "id"])
     @key(name: "byUser", fields: ["userID", "id"])
     @key(name: "byUserByCourse", fields: ["userID", "courseID"])
-    @auth(rules: [{ allow: private, provider: iam }]) {
+    @auth(rules: [{ allow: public, provider: iam }]) {
     id: ID!
     userID: ID!
     courseID: ID!
@@ -137,7 +137,7 @@ type Enrollment
 type User
     @model
     @key(name: "byLmsUserByLmsType", fields: ["lmsUserID", "lmsType"])
-    @auth(rules: [{ allow: private, provider: iam }]) {
+    @auth(rules: [{ allow: public, provider: iam }]) {
     id: ID!
     lmsUserID: ID!
     lmsType: String!
@@ -162,7 +162,7 @@ type Intervention
     @model
     @key(name: "byUser", fields: ["creatorUserID", "id"])
     @key(name: "byCourse", fields: ["courseID", "id"])
-    @auth(rules: [{ allow: private, provider: iam }]) {
+    @auth(rules: [{ allow: public, provider: iam }]) {
     id: ID!
     creatorUserID: ID!
     courseID: ID!
@@ -192,7 +192,7 @@ type Feed
     @key(name: "byEnrollmentByDate", fields: ["enrollmentID", "date"])
     @key(name: "byIntervention", fields: ["interventionID", "id"])
     @key(name: "byInterventionByDate", fields: ["interventionID", "date"])
-    @auth(rules: [{ allow: private, provider: iam }]) {
+    @auth(rules: [{ allow: public, provider: iam }]) {
     id: ID!
     enrollmentID: ID!
     interventionID: ID!
@@ -213,7 +213,7 @@ type History
     @key(name: "byInterventionByDate", fields: ["courseID", "date"])
     @key(name: "bySenderUserByDate", fields: ["senderUserID", "date"])
     @key(name: "byRecipientUserByDate", fields: ["recipientUserID", "date"])
-    @auth(rules: [{ allow: private, provider: iam }]) {
+    @auth(rules: [{ allow: public, provider: iam }]) {
     id: ID!
     courseID: ID!
     interventionID: ID!

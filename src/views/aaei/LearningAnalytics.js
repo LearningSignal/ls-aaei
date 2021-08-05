@@ -21,13 +21,22 @@ import { CChartLine, CChartRadar } from "@coreui/react-chartjs";
 import studentsData from "./StudentsData";
 import studentInterventionsData from "./StudentInterventionsData";
 
+import { API } from "aws-amplify";
+import { getCourse } from "../../graphql/queries";
+
 const LearningAnalytics = () => {
-    const queryPage = useLocation().search.match(/page=([0-9]+)/, "");
-    const currentPage = Number(queryPage && queryPage[1] ? queryPage[1] : 1);
-    const [page, setPage] = useState(currentPage);
+    // const queryPage = useLocation().search.match(/page=([0-9]+)/, "");
 
     const [modal, setModal] = useState(false);
     const [modalTitle, setModalTitle] = useState("");
+
+    const [course, setCourse] = useState({});
+
+    async function fetchCourse() {
+        const apiData = await API.graphql({ query: getCourse });
+        await setCourse(apiData.data.getCourse);
+        console.log(course);
+    }
 
     function viewModal(item) {
         setModal(true);
@@ -35,8 +44,8 @@ const LearningAnalytics = () => {
     }
 
     useEffect(() => {
-        currentPage !== page && setPage(currentPage);
-    }, [currentPage, page]);
+        fetchCourse();
+    }, []);
 
     return (
         <CRow>

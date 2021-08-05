@@ -133,7 +133,7 @@ export const schema = {
                     "properties": {
                         "rules": [
                             {
-                                "allow": "private",
+                                "allow": "public",
                                 "provider": "iam",
                                 "operations": [
                                     "create",
@@ -305,7 +305,7 @@ export const schema = {
                     "properties": {
                         "rules": [
                             {
-                                "allow": "private",
+                                "allow": "public",
                                 "provider": "iam",
                                 "operations": [
                                     "create",
@@ -508,7 +508,7 @@ export const schema = {
                     "properties": {
                         "rules": [
                             {
-                                "allow": "private",
+                                "allow": "public",
                                 "provider": "iam",
                                 "operations": [
                                     "create",
@@ -699,7 +699,7 @@ export const schema = {
                     "properties": {
                         "rules": [
                             {
-                                "allow": "private",
+                                "allow": "public",
                                 "provider": "iam",
                                 "operations": [
                                     "create",
@@ -827,7 +827,7 @@ export const schema = {
                     "properties": {
                         "rules": [
                             {
-                                "allow": "private",
+                                "allow": "public",
                                 "provider": "iam",
                                 "operations": [
                                     "create",
@@ -940,7 +940,7 @@ export const schema = {
                     "properties": {
                         "rules": [
                             {
-                                "allow": "private",
+                                "allow": "public",
                                 "provider": "iam",
                                 "operations": [
                                     "create",
@@ -1061,7 +1061,7 @@ export const schema = {
                     "properties": {
                         "rules": [
                             {
-                                "allow": "private",
+                                "allow": "public",
                                 "provider": "iam",
                                 "operations": [
                                     "create",
@@ -1296,7 +1296,7 @@ export const schema = {
                     "properties": {
                         "rules": [
                             {
-                                "allow": "private",
+                                "allow": "public",
                                 "provider": "iam",
                                 "operations": [
                                     "create",
@@ -1491,7 +1491,7 @@ export const schema = {
                     "properties": {
                         "rules": [
                             {
-                                "allow": "private",
+                                "allow": "public",
                                 "provider": "iam",
                                 "operations": [
                                     "create",
@@ -1687,7 +1687,7 @@ export const schema = {
                     "properties": {
                         "rules": [
                             {
-                                "allow": "private",
+                                "allow": "public",
                                 "provider": "iam",
                                 "operations": [
                                     "create",
