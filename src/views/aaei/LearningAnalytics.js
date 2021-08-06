@@ -33,7 +33,10 @@ const LearningAnalytics = () => {
     const [course, setCourse] = useState({});
 
     async function fetchCourse() {
-        const apiData = await API.graphql({ query: getCourse });
+        const apiData = await API.graphql({
+            query: getCourse,
+            variables: { id: 1 },
+        });
         await setCourse(apiData.data.getCourse);
         console.log(course);
     }
