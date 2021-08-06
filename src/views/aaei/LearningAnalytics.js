@@ -21,7 +21,7 @@ import { CChartLine, CChartRadar } from "@coreui/react-chartjs";
 import studentInterventionsData from "./StudentInterventionsData";
 
 import { API, graphqlOperation } from "aws-amplify";
-import { getCourseWithAttributesWithEnrollmentsWithDatas } from "../../graphql/queries";
+import { getCourseWithAttributesWithEnrollmentsWithDatas } from "../../graphql/customQueries";
 
 const LearningAnalytics = () => {
     // const queryPage = useLocation().search.match(/page=([0-9]+)/, "");
