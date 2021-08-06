@@ -18,11 +18,10 @@ import {
 
 import { CChartLine, CChartRadar } from "@coreui/react-chartjs";
 
-import studentsData from "./StudentsData";
 import studentInterventionsData from "./StudentInterventionsData";
 
 import { API, graphqlOperation } from "aws-amplify";
-import { getCourse } from "../../graphql/queries";
+import { getCourseWithAttributesWithEnrollmentsWithDatas } from "../../graphql/queries";
 
 const LearningAnalytics = () => {
     // const queryPage = useLocation().search.match(/page=([0-9]+)/, "");
@@ -31,14 +30,58 @@ const LearningAnalytics = () => {
     const [modalTitle, setModalTitle] = useState("");
 
     const [course, setCourse] = useState({});
+    const [listView, setListView] = useState([
+        {
+            id: 0,
+            name: "",
+            attendance: "",
+            assignment: "",
+            quiz: "",
+            exam: "",
+            discussion: "",
+            material: "",
+            lastActivityAt: "",
+        },
+    ]);
 
     async function fetchCourse() {
         const oneCourse = await API.graphql(
-            graphqlOperation(getCourse, { id: "1" })
+            graphqlOperation(getCourseWithAttributesWithEnrollmentsWithDatas, {
+                // NEXT: LTI 과목 정보로 변경!!!
+                id: "1",
+            })
         );
-        await setCourse(oneCourse);
-        console.log(course);
-        console.log(oneCourse);
+
+        setCourse(oneCourse.data.getCourse);
+        setListView(
+            convertStudentEnrollmentsToListView(
+                oneCourse.data.getCourse.enrollments.items
+            )
+        );
+    }
+
+    // NEXT: 데이터 확정되면 변경!!!
+    function convertStudentEnrollmentToListViewRow(student) {
+        let result = {
+            id: student.id,
+            name: student.user.name,
+            attendance: "9/9",
+            assignment: "6/6",
+            quiz: "4/4",
+            exam: "1/1",
+            discussion: "3/3",
+            material: "9/9",
+            lastActivityAt: student.lastActivityAt,
+        };
+
+        return result;
+    }
+
+    function convertStudentEnrollmentsToListView(enrollments) {
+        console.log(enrollments);
+        return enrollments
+            .filter((item) => item.type === "STUDENT")
+            .map((item) => convertStudentEnrollmentToListViewRow(item));
     }
 
     function viewModal(item) {
@@ -60,7 +103,7 @@ const LearningAnalytics = () => {
                     </CCardHeader>
                     <CCardBody>
                         <CDataTable
-                            items={studentsData}
+                            items={listView}
                             sorter="{{ external: true, resetable: true }}"
                             fields={[
                                 {

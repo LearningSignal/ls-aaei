@@ -128,6 +128,7 @@ type Enrollment
     lastActivityAt: String
     riskProbability: Float
     status: String!
+    user: User! @connection(fields: ["userID"])
     feeds: [Feed] @connection(keyName: "byEnrollment", fields: ["id"])
     feedsByDate: [Feed]
         @connection(keyName: "byEnrollmentByDate", fields: ["id"])

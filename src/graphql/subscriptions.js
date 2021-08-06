@@ -9,11 +9,6 @@ export const onCreateAccount = /* GraphQL */ `
       lmsType
       name
       status
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
       courses {
         items {
           id
@@ -25,14 +20,10 @@ export const onCreateAccount = /* GraphQL */ `
           lmsAccountID
           courseName
           term
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       coursesByCourseName {
         items {
@@ -45,14 +36,10 @@ export const onCreateAccount = /* GraphQL */ `
           lmsAccountID
           courseName
           term
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       coursesByTerm {
         items {
@@ -65,14 +52,10 @@ export const onCreateAccount = /* GraphQL */ `
           lmsAccountID
           courseName
           term
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       coursesByTermByCourseName {
         items {
@@ -85,15 +68,13 @@ export const onCreateAccount = /* GraphQL */ `
           lmsAccountID
           courseName
           term
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -105,11 +86,6 @@ export const onUpdateAccount = /* GraphQL */ `
       lmsType
       name
       status
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
       courses {
         items {
           id
@@ -121,14 +97,10 @@ export const onUpdateAccount = /* GraphQL */ `
           lmsAccountID
           courseName
           term
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       coursesByCourseName {
         items {
@@ -141,14 +113,10 @@ export const onUpdateAccount = /* GraphQL */ `
           lmsAccountID
           courseName
           term
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       coursesByTerm {
         items {
@@ -161,14 +129,10 @@ export const onUpdateAccount = /* GraphQL */ `
           lmsAccountID
           courseName
           term
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       coursesByTermByCourseName {
         items {
@@ -181,15 +145,13 @@ export const onUpdateAccount = /* GraphQL */ `
           lmsAccountID
           courseName
           term
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -201,11 +163,6 @@ export const onDeleteAccount = /* GraphQL */ `
       lmsType
       name
       status
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
       courses {
         items {
           id
@@ -217,14 +174,10 @@ export const onDeleteAccount = /* GraphQL */ `
           lmsAccountID
           courseName
           term
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       coursesByCourseName {
         items {
@@ -237,14 +190,10 @@ export const onDeleteAccount = /* GraphQL */ `
           lmsAccountID
           courseName
           term
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       coursesByTerm {
         items {
@@ -257,14 +206,10 @@ export const onDeleteAccount = /* GraphQL */ `
           lmsAccountID
           courseName
           term
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       coursesByTermByCourseName {
         items {
@@ -277,15 +222,13 @@ export const onDeleteAccount = /* GraphQL */ `
           lmsAccountID
           courseName
           term
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -301,38 +244,26 @@ export const onCreateAccountCourse = /* GraphQL */ `
       lmsAccountID
       courseName
       term
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
       account {
         id
         lmsAccountID
         lmsType
         name
         status
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
         courses {
           nextToken
-          startedAt
         }
         coursesByCourseName {
           nextToken
-          startedAt
         }
         coursesByTerm {
           nextToken
-          startedAt
         }
         coursesByTermByCourseName {
           nextToken
-          startedAt
         }
+        createdAt
+        updatedAt
       }
       course {
         id
@@ -342,40 +273,32 @@ export const onCreateAccountCourse = /* GraphQL */ `
         code
         term
         status
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
         accounts {
           nextToken
-          startedAt
-        }
-        attributes {
-          nextToken
-          startedAt
         }
         enrollments {
           nextToken
-          startedAt
+        }
+        attributes {
+          nextToken
         }
         interventions {
           nextToken
-          startedAt
         }
         historys {
           nextToken
-          startedAt
         }
         historysByDate {
           nextToken
-          startedAt
         }
         historyByInterventionByDate {
           nextToken
-          startedAt
         }
+        createdAt
+        updatedAt
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -391,38 +314,26 @@ export const onUpdateAccountCourse = /* GraphQL */ `
       lmsAccountID
       courseName
       term
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
       account {
         id
         lmsAccountID
         lmsType
         name
         status
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
         courses {
           nextToken
-          startedAt
         }
         coursesByCourseName {
           nextToken
-          startedAt
         }
         coursesByTerm {
           nextToken
-          startedAt
         }
         coursesByTermByCourseName {
           nextToken
-          startedAt
         }
+        createdAt
+        updatedAt
       }
       course {
         id
@@ -432,40 +343,32 @@ export const onUpdateAccountCourse = /* GraphQL */ `
         code
         term
         status
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
         accounts {
           nextToken
-          startedAt
-        }
-        attributes {
-          nextToken
-          startedAt
         }
         enrollments {
           nextToken
-          startedAt
+        }
+        attributes {
+          nextToken
         }
         interventions {
           nextToken
-          startedAt
         }
         historys {
           nextToken
-          startedAt
         }
         historysByDate {
           nextToken
-          startedAt
         }
         historyByInterventionByDate {
           nextToken
-          startedAt
         }
+        createdAt
+        updatedAt
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -481,38 +384,26 @@ export const onDeleteAccountCourse = /* GraphQL */ `
       lmsAccountID
       courseName
       term
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
       account {
         id
         lmsAccountID
         lmsType
         name
         status
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
         courses {
           nextToken
-          startedAt
         }
         coursesByCourseName {
           nextToken
-          startedAt
         }
         coursesByTerm {
           nextToken
-          startedAt
         }
         coursesByTermByCourseName {
           nextToken
-          startedAt
         }
+        createdAt
+        updatedAt
       }
       course {
         id
@@ -522,40 +413,32 @@ export const onDeleteAccountCourse = /* GraphQL */ `
         code
         term
         status
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
         accounts {
           nextToken
-          startedAt
-        }
-        attributes {
-          nextToken
-          startedAt
         }
         enrollments {
           nextToken
-          startedAt
+        }
+        attributes {
+          nextToken
         }
         interventions {
           nextToken
-          startedAt
         }
         historys {
           nextToken
-          startedAt
         }
         historysByDate {
           nextToken
-          startedAt
         }
         historyByInterventionByDate {
           nextToken
-          startedAt
         }
+        createdAt
+        updatedAt
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -569,11 +452,6 @@ export const onCreateCourse = /* GraphQL */ `
       code
       term
       status
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
       accounts {
         items {
           id
@@ -585,32 +463,10 @@ export const onCreateCourse = /* GraphQL */ `
           lmsAccountID
           courseName
           term
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
-      }
-      attributes {
-        items {
-          id
-          courseID
-          status
-          type
-          name
-          scoreYN
-          maxScore
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
-        }
-        nextToken
-        startedAt
       }
       enrollments {
         items {
@@ -623,14 +479,24 @@ export const onCreateCourse = /* GraphQL */ `
           lastActivityAt
           riskProbability
           status
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
+      }
+      attributes {
+        items {
+          id
+          courseID
+          status
+          type
+          name
+          scoreYN
+          maxScore
+          createdAt
+          updatedAt
+        }
+        nextToken
       }
       interventions {
         items {
@@ -649,14 +515,10 @@ export const onCreateCourse = /* GraphQL */ `
           reserveTime
           cronTime
           status
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       historys {
         items {
@@ -670,14 +532,10 @@ export const onCreateCourse = /* GraphQL */ `
           smsYN
           snsYN
           date
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       historysByDate {
         items {
@@ -691,14 +549,10 @@ export const onCreateCourse = /* GraphQL */ `
           smsYN
           snsYN
           date
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       historyByInterventionByDate {
         items {
@@ -712,15 +566,13 @@ export const onCreateCourse = /* GraphQL */ `
           smsYN
           snsYN
           date
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -734,11 +586,6 @@ export const onUpdateCourse = /* GraphQL */ `
       code
       term
       status
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
       accounts {
         items {
           id
@@ -750,32 +597,10 @@ export const onUpdateCourse = /* GraphQL */ `
           lmsAccountID
           courseName
           term
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
-      }
-      attributes {
-        items {
-          id
-          courseID
-          status
-          type
-          name
-          scoreYN
-          maxScore
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
-        }
-        nextToken
-        startedAt
       }
       enrollments {
         items {
@@ -788,14 +613,24 @@ export const onUpdateCourse = /* GraphQL */ `
           lastActivityAt
           riskProbability
           status
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
+      }
+      attributes {
+        items {
+          id
+          courseID
+          status
+          type
+          name
+          scoreYN
+          maxScore
+          createdAt
+          updatedAt
+        }
+        nextToken
       }
       interventions {
         items {
@@ -814,14 +649,10 @@ export const onUpdateCourse = /* GraphQL */ `
           reserveTime
           cronTime
           status
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       historys {
         items {
@@ -835,14 +666,10 @@ export const onUpdateCourse = /* GraphQL */ `
           smsYN
           snsYN
           date
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       historysByDate {
         items {
@@ -856,14 +683,10 @@ export const onUpdateCourse = /* GraphQL */ `
           smsYN
           snsYN
           date
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       historyByInterventionByDate {
         items {
@@ -877,15 +700,13 @@ export const onUpdateCourse = /* GraphQL */ `
           smsYN
           snsYN
           date
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -899,11 +720,6 @@ export const onDeleteCourse = /* GraphQL */ `
       code
       term
       status
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
       accounts {
         items {
           id
@@ -915,32 +731,10 @@ export const onDeleteCourse = /* GraphQL */ `
           lmsAccountID
           courseName
           term
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
-      }
-      attributes {
-        items {
-          id
-          courseID
-          status
-          type
-          name
-          scoreYN
-          maxScore
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
-        }
-        nextToken
-        startedAt
       }
       enrollments {
         items {
@@ -953,14 +747,24 @@ export const onDeleteCourse = /* GraphQL */ `
           lastActivityAt
           riskProbability
           status
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
+      }
+      attributes {
+        items {
+          id
+          courseID
+          status
+          type
+          name
+          scoreYN
+          maxScore
+          createdAt
+          updatedAt
+        }
+        nextToken
       }
       interventions {
         items {
@@ -979,14 +783,10 @@ export const onDeleteCourse = /* GraphQL */ `
           reserveTime
           cronTime
           status
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       historys {
         items {
@@ -1000,14 +800,10 @@ export const onDeleteCourse = /* GraphQL */ `
           smsYN
           snsYN
           date
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       historysByDate {
         items {
@@ -1021,14 +817,10 @@ export const onDeleteCourse = /* GraphQL */ `
           smsYN
           snsYN
           date
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       historyByInterventionByDate {
         items {
@@ -1042,15 +834,13 @@ export const onDeleteCourse = /* GraphQL */ `
           smsYN
           snsYN
           date
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -1064,11 +854,6 @@ export const onCreateAttribute = /* GraphQL */ `
       name
       scoreYN
       maxScore
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
       datas {
         items {
           id
@@ -1076,15 +861,13 @@ export const onCreateAttribute = /* GraphQL */ `
           enrollmentID
           status
           value
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -1098,11 +881,6 @@ export const onUpdateAttribute = /* GraphQL */ `
       name
       scoreYN
       maxScore
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
       datas {
         items {
           id
@@ -1110,15 +888,13 @@ export const onUpdateAttribute = /* GraphQL */ `
           enrollmentID
           status
           value
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -1132,11 +908,6 @@ export const onDeleteAttribute = /* GraphQL */ `
       name
       scoreYN
       maxScore
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
       datas {
         items {
           id
@@ -1144,15 +915,13 @@ export const onDeleteAttribute = /* GraphQL */ `
           enrollmentID
           status
           value
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -1164,11 +933,6 @@ export const onCreateData = /* GraphQL */ `
       enrollmentID
       status
       value
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
       attribute {
         id
         courseID
@@ -1177,15 +941,11 @@ export const onCreateData = /* GraphQL */ `
         name
         scoreYN
         maxScore
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
         datas {
           nextToken
-          startedAt
         }
+        createdAt
+        updatedAt
       }
       enrollment {
         id
@@ -1197,24 +957,34 @@ export const onCreateData = /* GraphQL */ `
         lastActivityAt
         riskProbability
         status
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
-        datas {
-          nextToken
-          startedAt
+        user {
+          id
+          lmsUserID
+          lmsType
+          name
+          email
+          phoneNumber
+          snsType
+          snsID
+          lastLoggedOut
+          status
+          createdAt
+          updatedAt
         }
         feeds {
           nextToken
-          startedAt
         }
         feedsByDate {
           nextToken
-          startedAt
         }
+        datas {
+          nextToken
+        }
+        createdAt
+        updatedAt
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -1226,11 +996,6 @@ export const onUpdateData = /* GraphQL */ `
       enrollmentID
       status
       value
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
       attribute {
         id
         courseID
@@ -1239,15 +1004,11 @@ export const onUpdateData = /* GraphQL */ `
         name
         scoreYN
         maxScore
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
         datas {
           nextToken
-          startedAt
         }
+        createdAt
+        updatedAt
       }
       enrollment {
         id
@@ -1259,24 +1020,34 @@ export const onUpdateData = /* GraphQL */ `
         lastActivityAt
         riskProbability
         status
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
-        datas {
-          nextToken
-          startedAt
+        user {
+          id
+          lmsUserID
+          lmsType
+          name
+          email
+          phoneNumber
+          snsType
+          snsID
+          lastLoggedOut
+          status
+          createdAt
+          updatedAt
         }
         feeds {
           nextToken
-          startedAt
         }
         feedsByDate {
           nextToken
-          startedAt
         }
+        datas {
+          nextToken
+        }
+        createdAt
+        updatedAt
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -1288,11 +1059,6 @@ export const onDeleteData = /* GraphQL */ `
       enrollmentID
       status
       value
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
       attribute {
         id
         courseID
@@ -1301,15 +1067,11 @@ export const onDeleteData = /* GraphQL */ `
         name
         scoreYN
         maxScore
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
         datas {
           nextToken
-          startedAt
         }
+        createdAt
+        updatedAt
       }
       enrollment {
         id
@@ -1321,24 +1083,34 @@ export const onDeleteData = /* GraphQL */ `
         lastActivityAt
         riskProbability
         status
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
-        datas {
-          nextToken
-          startedAt
+        user {
+          id
+          lmsUserID
+          lmsType
+          name
+          email
+          phoneNumber
+          snsType
+          snsID
+          lastLoggedOut
+          status
+          createdAt
+          updatedAt
         }
         feeds {
           nextToken
-          startedAt
         }
         feedsByDate {
           nextToken
-          startedAt
         }
+        datas {
+          nextToken
+        }
+        createdAt
+        updatedAt
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -1354,26 +1126,34 @@ export const onCreateEnrollment = /* GraphQL */ `
       lastActivityAt
       riskProbability
       status
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
-      datas {
-        items {
-          id
-          attributeID
-          enrollmentID
-          status
-          value
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
+      user {
+        id
+        lmsUserID
+        lmsType
+        name
+        email
+        phoneNumber
+        snsType
+        snsID
+        lastLoggedOut
+        status
+        enrollmentByCourse {
+          nextToken
         }
-        nextToken
-        startedAt
+        enrollments {
+          nextToken
+        }
+        interventions {
+          nextToken
+        }
+        senderHistorys {
+          nextToken
+        }
+        recipientHistorys {
+          nextToken
+        }
+        createdAt
+        updatedAt
       }
       feeds {
         items {
@@ -1383,14 +1163,10 @@ export const onCreateEnrollment = /* GraphQL */ `
           feed
           type
           date
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       feedsByDate {
         items {
@@ -1400,15 +1176,25 @@ export const onCreateEnrollment = /* GraphQL */ `
           feed
           type
           date
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
+      datas {
+        items {
+          id
+          attributeID
+          enrollmentID
+          status
+          value
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -1424,26 +1210,34 @@ export const onUpdateEnrollment = /* GraphQL */ `
       lastActivityAt
       riskProbability
       status
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
-      datas {
-        items {
-          id
-          attributeID
-          enrollmentID
-          status
-          value
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
+      user {
+        id
+        lmsUserID
+        lmsType
+        name
+        email
+        phoneNumber
+        snsType
+        snsID
+        lastLoggedOut
+        status
+        enrollmentByCourse {
+          nextToken
         }
-        nextToken
-        startedAt
+        enrollments {
+          nextToken
+        }
+        interventions {
+          nextToken
+        }
+        senderHistorys {
+          nextToken
+        }
+        recipientHistorys {
+          nextToken
+        }
+        createdAt
+        updatedAt
       }
       feeds {
         items {
@@ -1453,14 +1247,10 @@ export const onUpdateEnrollment = /* GraphQL */ `
           feed
           type
           date
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       feedsByDate {
         items {
@@ -1470,15 +1260,25 @@ export const onUpdateEnrollment = /* GraphQL */ `
           feed
           type
           date
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
+      datas {
+        items {
+          id
+          attributeID
+          enrollmentID
+          status
+          value
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -1494,26 +1294,34 @@ export const onDeleteEnrollment = /* GraphQL */ `
       lastActivityAt
       riskProbability
       status
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
-      datas {
-        items {
-          id
-          attributeID
-          enrollmentID
-          status
-          value
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
+      user {
+        id
+        lmsUserID
+        lmsType
+        name
+        email
+        phoneNumber
+        snsType
+        snsID
+        lastLoggedOut
+        status
+        enrollmentByCourse {
+          nextToken
         }
-        nextToken
-        startedAt
+        enrollments {
+          nextToken
+        }
+        interventions {
+          nextToken
+        }
+        senderHistorys {
+          nextToken
+        }
+        recipientHistorys {
+          nextToken
+        }
+        createdAt
+        updatedAt
       }
       feeds {
         items {
@@ -1523,14 +1331,10 @@ export const onDeleteEnrollment = /* GraphQL */ `
           feed
           type
           date
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       feedsByDate {
         items {
@@ -1540,15 +1344,25 @@ export const onDeleteEnrollment = /* GraphQL */ `
           feed
           type
           date
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
+      datas {
+        items {
+          id
+          attributeID
+          enrollmentID
+          status
+          value
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -1565,11 +1379,6 @@ export const onCreateUser = /* GraphQL */ `
       snsID
       lastLoggedOut
       status
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
       enrollmentByCourse {
         items {
           id
@@ -1581,14 +1390,10 @@ export const onCreateUser = /* GraphQL */ `
           lastActivityAt
           riskProbability
           status
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       enrollments {
         items {
@@ -1601,14 +1406,10 @@ export const onCreateUser = /* GraphQL */ `
           lastActivityAt
           riskProbability
           status
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       interventions {
         items {
@@ -1627,14 +1428,10 @@ export const onCreateUser = /* GraphQL */ `
           reserveTime
           cronTime
           status
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       senderHistorys {
         items {
@@ -1648,14 +1445,10 @@ export const onCreateUser = /* GraphQL */ `
           smsYN
           snsYN
           date
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       recipientHistorys {
         items {
@@ -1669,15 +1462,13 @@ export const onCreateUser = /* GraphQL */ `
           smsYN
           snsYN
           date
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -1694,11 +1485,6 @@ export const onUpdateUser = /* GraphQL */ `
       snsID
       lastLoggedOut
       status
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
       enrollmentByCourse {
         items {
           id
@@ -1710,14 +1496,10 @@ export const onUpdateUser = /* GraphQL */ `
           lastActivityAt
           riskProbability
           status
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       enrollments {
         items {
@@ -1730,14 +1512,10 @@ export const onUpdateUser = /* GraphQL */ `
           lastActivityAt
           riskProbability
           status
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       interventions {
         items {
@@ -1756,14 +1534,10 @@ export const onUpdateUser = /* GraphQL */ `
           reserveTime
           cronTime
           status
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       senderHistorys {
         items {
@@ -1777,14 +1551,10 @@ export const onUpdateUser = /* GraphQL */ `
           smsYN
           snsYN
           date
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       recipientHistorys {
         items {
@@ -1798,15 +1568,13 @@ export const onUpdateUser = /* GraphQL */ `
           smsYN
           snsYN
           date
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -1823,11 +1591,6 @@ export const onDeleteUser = /* GraphQL */ `
       snsID
       lastLoggedOut
       status
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
       enrollmentByCourse {
         items {
           id
@@ -1839,14 +1602,10 @@ export const onDeleteUser = /* GraphQL */ `
           lastActivityAt
           riskProbability
           status
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       enrollments {
         items {
@@ -1859,14 +1618,10 @@ export const onDeleteUser = /* GraphQL */ `
           lastActivityAt
           riskProbability
           status
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       interventions {
         items {
@@ -1885,14 +1640,10 @@ export const onDeleteUser = /* GraphQL */ `
           reserveTime
           cronTime
           status
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       senderHistorys {
         items {
@@ -1906,14 +1657,10 @@ export const onDeleteUser = /* GraphQL */ `
           smsYN
           snsYN
           date
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       recipientHistorys {
         items {
@@ -1927,15 +1674,13 @@ export const onDeleteUser = /* GraphQL */ `
           smsYN
           snsYN
           date
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -1957,11 +1702,6 @@ export const onCreateIntervention = /* GraphQL */ `
       reserveTime
       cronTime
       status
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
       feeds {
         items {
           id
@@ -1970,14 +1710,10 @@ export const onCreateIntervention = /* GraphQL */ `
           feed
           type
           date
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       feedsByDate {
         items {
@@ -1987,14 +1723,10 @@ export const onCreateIntervention = /* GraphQL */ `
           feed
           type
           date
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       historys {
         items {
@@ -2008,14 +1740,10 @@ export const onCreateIntervention = /* GraphQL */ `
           smsYN
           snsYN
           date
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       historysByDate {
         items {
@@ -2029,15 +1757,13 @@ export const onCreateIntervention = /* GraphQL */ `
           smsYN
           snsYN
           date
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -2059,11 +1785,6 @@ export const onUpdateIntervention = /* GraphQL */ `
       reserveTime
       cronTime
       status
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
       feeds {
         items {
           id
@@ -2072,14 +1793,10 @@ export const onUpdateIntervention = /* GraphQL */ `
           feed
           type
           date
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       feedsByDate {
         items {
@@ -2089,14 +1806,10 @@ export const onUpdateIntervention = /* GraphQL */ `
           feed
           type
           date
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       historys {
         items {
@@ -2110,14 +1823,10 @@ export const onUpdateIntervention = /* GraphQL */ `
           smsYN
           snsYN
           date
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       historysByDate {
         items {
@@ -2131,15 +1840,13 @@ export const onUpdateIntervention = /* GraphQL */ `
           smsYN
           snsYN
           date
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -2161,11 +1868,6 @@ export const onDeleteIntervention = /* GraphQL */ `
       reserveTime
       cronTime
       status
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
       feeds {
         items {
           id
@@ -2174,14 +1876,10 @@ export const onDeleteIntervention = /* GraphQL */ `
           feed
           type
           date
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       feedsByDate {
         items {
@@ -2191,14 +1889,10 @@ export const onDeleteIntervention = /* GraphQL */ `
           feed
           type
           date
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       historys {
         items {
@@ -2212,14 +1906,10 @@ export const onDeleteIntervention = /* GraphQL */ `
           smsYN
           snsYN
           date
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
       historysByDate {
         items {
@@ -2233,15 +1923,13 @@ export const onDeleteIntervention = /* GraphQL */ `
           smsYN
           snsYN
           date
-          _version
-          _deleted
-          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
-        startedAt
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -2254,9 +1942,6 @@ export const onCreateFeed = /* GraphQL */ `
       feed
       type
       date
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -2271,9 +1956,6 @@ export const onUpdateFeed = /* GraphQL */ `
       feed
       type
       date
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -2288,9 +1970,6 @@ export const onDeleteFeed = /* GraphQL */ `
       feed
       type
       date
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -2309,9 +1988,6 @@ export const onCreateHistory = /* GraphQL */ `
       smsYN
       snsYN
       date
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -2330,9 +2006,6 @@ export const onUpdateHistory = /* GraphQL */ `
       smsYN
       snsYN
       date
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -2351,9 +2024,6 @@ export const onDeleteHistory = /* GraphQL */ `
       smsYN
       snsYN
       date
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
