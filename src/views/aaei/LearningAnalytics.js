@@ -38,6 +38,7 @@ const LearningAnalytics = () => {
             variables: { id: 1 },
         });
         await setCourse(apiData.data.getCourse);
+        console.log(apiData);
         console.log(course);
     }
 

@@ -387,9 +387,6 @@ export const syncAccountCourses = /* GraphQL */ `
     }
   }
 `;
-
-// export const getCourseWith
-
 export const getCourse = /* GraphQL */ `
   query GetCourse($id: ID!) {
     getCourse(id: $id) {
