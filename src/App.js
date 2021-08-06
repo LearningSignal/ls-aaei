@@ -4,6 +4,10 @@ import "./scss/style.scss";
 
 import queryString from "query-string";
 
+import Amplify, { API, graphqlOperation } from "aws-amplify";
+import awsconfig from "./aws-exports";
+Amplify.configure(awsconfig);
+
 const loading = (
     <div className="pt-3 text-center">
         <div className="sk-spinner sk-spinner-pulse"></div>

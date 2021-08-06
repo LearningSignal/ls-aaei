@@ -21,7 +21,7 @@ import { CChartLine, CChartRadar } from "@coreui/react-chartjs";
 import studentsData from "./StudentsData";
 import studentInterventionsData from "./StudentInterventionsData";
 
-import { API } from "aws-amplify";
+import { API, graphqlOperation } from "aws-amplify";
 import { getCourse } from "../../graphql/queries";
 
 const LearningAnalytics = () => {
@@ -33,13 +33,12 @@ const LearningAnalytics = () => {
     const [course, setCourse] = useState({});
 
     async function fetchCourse() {
-        const apiData = await API.graphql({
-            query: getCourse,
-            variables: { id: 1 },
-        });
-        await setCourse(apiData.data.getCourse);
-        console.log(apiData);
+        const oneCourse = await API.graphql(
+            graphqlOperation(getCourse, { id: "1" })
+        );
+        await setCourse(oneCourse);
         console.log(course);
+        console.log(oneCourse);
     }
 
     function viewModal(item) {
