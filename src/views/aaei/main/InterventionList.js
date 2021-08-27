@@ -16,20 +16,28 @@ import {
     CBadge,
 } from "@coreui/react";
 
-import interventionsListData from "./InterventionsListData";
-import studentsInterventionsData from "./StudentsInterventionsData";
+import { API, graphqlOperation } from "aws-amplify";
+import * as customQueries from "../../../graphql/customQueries";
+
+import interventionsListData from "../InterventionsListData";
+import studentsInterventionsData from "../StudentsInterventionsData";
+
+const testCreatorUserID = "4"; // TEST 데이터: 류호경
+const testCourseID = "1"; // TEST 데이터: 디자인사(01)
 
 const InterventionList = () => {
     const [modal, setModal] = useState(false);
     const [modalTitle, setModalTitle] = useState("");
     const getBadge = (status) => {
         switch (status) {
-            case "COMPLETE":
+            case "COMPLETED":
                 return "success";
             case "ACTIVE":
                 return "primary";
-            default:
+            case "INACTIVE":
                 return "secondary";
+            default:
+                return "";
         }
     };
 

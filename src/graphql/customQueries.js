@@ -1,6 +1,3 @@
-/* eslint-disable */
-// this is an auto generated file. This will be overwritten
-
 export const getCourseWithAttributesWithEnrollmentsWithDatas = /* GraphQL */ `
     query GetCourseWithAttributesWithEnrollmentsWithDatas($id: ID!) {
         getCourse(id: $id) {
@@ -24,7 +21,6 @@ export const getCourseWithAttributesWithEnrollmentsWithDatas = /* GraphQL */ `
                     datas {
                         items {
                             id
-                            enrollmentID
                             attributeID
                             status
                             updatedAt
@@ -46,6 +42,7 @@ export const getCourseWithAttributesWithEnrollmentsWithDatas = /* GraphQL */ `
                     scoreYN
                     status
                     type
+                    createdAt
                 }
             }
         }

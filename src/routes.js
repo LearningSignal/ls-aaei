@@ -1,15 +1,15 @@
 import React from "react";
 
 const LearningAnalytics = React.lazy(() =>
-    import("./views/aaei/LearningAnalytics")
+    import("./views/aaei/main/LearningAnalytics")
 );
 
 const InterventionDesign = React.lazy(() =>
-    import("./views/aaei/InterventionDesign")
+    import("./views/aaei/main/InterventionDesign")
 );
 
 const InterventionList = React.lazy(() =>
-    import("./views/aaei/InterventionList")
+    import("./views/aaei/main/InterventionList")
 );
 
 const Toaster = React.lazy(() =>

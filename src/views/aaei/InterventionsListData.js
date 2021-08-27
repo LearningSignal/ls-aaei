@@ -9,7 +9,7 @@ const interventionsListData = [
         snsYn: "N",
         feed: "Y",
         type: "즉시",
-        state: "COMPLETE",
+        state: "COMPLETED",
         date: "2021/03/02",
     },
     {
@@ -22,7 +22,7 @@ const interventionsListData = [
         snsYn: "N",
         feed: "N",
         type: "특정 날짜에",
-        state: "COMPLETE",
+        state: "COMPLETED",
         date: "2021/04/15",
     },
     {

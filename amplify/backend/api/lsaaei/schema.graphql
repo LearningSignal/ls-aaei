@@ -25,6 +25,7 @@ type Account
     lmsType: String!
     name: String!
     status: String!
+    users: [AccountUser] @connection(keyName: "byAccount", fields: ["id"])
     courses: [AccountCourse] @connection(keyName: "byAccount", fields: ["id"])
     coursesByCourseName: [AccountCourse]
         @connection(keyName: "byAccountByCourseName", fields: ["id"])
@@ -135,6 +136,22 @@ type Enrollment
     datas: [Data] @connection(keyName: "byEnrollment", fields: ["id"])
 }
 
+type AccountUser
+    @model
+    @key(name: "byAccount", fields: ["accountID", "id"])
+    @key(name: "byUser", fields: ["userID", "id"])
+    @auth(rules: [{ allow: public }]) {
+    id: ID!
+    accountID: ID!
+    userID: ID!
+    lmsType: String!
+    lmsAccountUserID: ID!
+    lmsAccountID: ID!
+    lmsUserID: ID!
+    account: Account! @connection(fields: ["accountID"])
+    user: User! @connection(fields: ["userID"])
+}
+
 type User
     @model
     @key(name: "byLmsUserByLmsType", fields: ["lmsUserID", "lmsType"])
@@ -149,6 +166,7 @@ type User
     snsID: String
     lastLoggedOut: String
     status: String!
+    accounts: [AccountUser] @connection(keyName: "byUser", fields: ["id"])
     enrollmentByCourse: [Enrollment]
         @connection(keyName: "byUserByCourse", fields: ["id"])
     enrollments: [Enrollment] @connection(keyName: "byUser", fields: ["id"])
@@ -163,22 +181,24 @@ type Intervention
     @model
     @key(name: "byUser", fields: ["creatorUserID", "id"])
     @key(name: "byCourse", fields: ["courseID", "id"])
+    @key(name: "byUserbyCourse", fields: ["creatorUserID", "courseID"])
     @auth(rules: [{ allow: public }]) {
     id: ID!
     creatorUserID: ID!
     courseID: ID!
     name: String!
     description: String
-    condition: String # JSON 데이터
+    conditions: String # JSON 데이터
+    type: String!
+    sendTime: String
+    recipientIDs: String # JSON 데이터 (리스트)
+    title: String!
     content: String!
     emailYN: YN!
     lmsYN: YN!
     smsYN: YN!
     snsYN: YN!
-    sendTime: String
-    reserveTime: String
-    cronTime: String
-    status: String! # delete/active/inactive
+    status: String! # DELETE/ACTIVE/INACTIVE
     feeds: [Feed] @connection(keyName: "byIntervention", fields: ["id"])
     feedsByDate: [Feed]
         @connection(keyName: "byInterventionByDate", fields: ["id"])

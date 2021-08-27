@@ -4,7 +4,7 @@ import CIcon from "@coreui/icons-react";
 const _nav_aaei = [
     {
         _tag: "CSidebarNavTitle",
-        _children: ["학습개입"],
+        _children: ["학습몰입증진 자동개입 시스템"],
     },
     {
         _tag: "CSidebarNavItem",

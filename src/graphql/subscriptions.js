@@ -9,6 +9,20 @@ export const onCreateAccount = /* GraphQL */ `
       lmsType
       name
       status
+      users {
+        items {
+          id
+          accountID
+          userID
+          lmsType
+          lmsAccountUserID
+          lmsAccountID
+          lmsUserID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       courses {
         items {
           id
@@ -86,6 +100,20 @@ export const onUpdateAccount = /* GraphQL */ `
       lmsType
       name
       status
+      users {
+        items {
+          id
+          accountID
+          userID
+          lmsType
+          lmsAccountUserID
+          lmsAccountID
+          lmsUserID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       courses {
         items {
           id
@@ -163,6 +191,20 @@ export const onDeleteAccount = /* GraphQL */ `
       lmsType
       name
       status
+      users {
+        items {
+          id
+          accountID
+          userID
+          lmsType
+          lmsAccountUserID
+          lmsAccountID
+          lmsUserID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       courses {
         items {
           id
@@ -250,6 +292,9 @@ export const onCreateAccountCourse = /* GraphQL */ `
         lmsType
         name
         status
+        users {
+          nextToken
+        }
         courses {
           nextToken
         }
@@ -320,6 +365,9 @@ export const onUpdateAccountCourse = /* GraphQL */ `
         lmsType
         name
         status
+        users {
+          nextToken
+        }
         courses {
           nextToken
         }
@@ -390,6 +438,9 @@ export const onDeleteAccountCourse = /* GraphQL */ `
         lmsType
         name
         status
+        users {
+          nextToken
+        }
         courses {
           nextToken
         }
@@ -505,15 +556,16 @@ export const onCreateCourse = /* GraphQL */ `
           courseID
           name
           description
-          condition
+          conditions
+          type
+          sendTime
+          recipientIDs
+          title
           content
           emailYN
           lmsYN
           smsYN
           snsYN
-          sendTime
-          reserveTime
-          cronTime
           status
           createdAt
           updatedAt
@@ -639,15 +691,16 @@ export const onUpdateCourse = /* GraphQL */ `
           courseID
           name
           description
-          condition
+          conditions
+          type
+          sendTime
+          recipientIDs
+          title
           content
           emailYN
           lmsYN
           smsYN
           snsYN
-          sendTime
-          reserveTime
-          cronTime
           status
           createdAt
           updatedAt
@@ -773,15 +826,16 @@ export const onDeleteCourse = /* GraphQL */ `
           courseID
           name
           description
-          condition
+          conditions
+          type
+          sendTime
+          recipientIDs
+          title
           content
           emailYN
           lmsYN
           smsYN
           snsYN
-          sendTime
-          reserveTime
-          cronTime
           status
           createdAt
           updatedAt
@@ -1137,6 +1191,9 @@ export const onCreateEnrollment = /* GraphQL */ `
         snsID
         lastLoggedOut
         status
+        accounts {
+          nextToken
+        }
         enrollmentByCourse {
           nextToken
         }
@@ -1221,6 +1278,9 @@ export const onUpdateEnrollment = /* GraphQL */ `
         snsID
         lastLoggedOut
         status
+        accounts {
+          nextToken
+        }
         enrollmentByCourse {
           nextToken
         }
@@ -1305,6 +1365,9 @@ export const onDeleteEnrollment = /* GraphQL */ `
         snsID
         lastLoggedOut
         status
+        accounts {
+          nextToken
+        }
         enrollmentByCourse {
           nextToken
         }
@@ -1366,6 +1429,219 @@ export const onDeleteEnrollment = /* GraphQL */ `
     }
   }
 `;
+export const onCreateAccountUser = /* GraphQL */ `
+  subscription OnCreateAccountUser {
+    onCreateAccountUser {
+      id
+      accountID
+      userID
+      lmsType
+      lmsAccountUserID
+      lmsAccountID
+      lmsUserID
+      account {
+        id
+        lmsAccountID
+        lmsType
+        name
+        status
+        users {
+          nextToken
+        }
+        courses {
+          nextToken
+        }
+        coursesByCourseName {
+          nextToken
+        }
+        coursesByTerm {
+          nextToken
+        }
+        coursesByTermByCourseName {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      user {
+        id
+        lmsUserID
+        lmsType
+        name
+        email
+        phoneNumber
+        snsType
+        snsID
+        lastLoggedOut
+        status
+        accounts {
+          nextToken
+        }
+        enrollmentByCourse {
+          nextToken
+        }
+        enrollments {
+          nextToken
+        }
+        interventions {
+          nextToken
+        }
+        senderHistorys {
+          nextToken
+        }
+        recipientHistorys {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateAccountUser = /* GraphQL */ `
+  subscription OnUpdateAccountUser {
+    onUpdateAccountUser {
+      id
+      accountID
+      userID
+      lmsType
+      lmsAccountUserID
+      lmsAccountID
+      lmsUserID
+      account {
+        id
+        lmsAccountID
+        lmsType
+        name
+        status
+        users {
+          nextToken
+        }
+        courses {
+          nextToken
+        }
+        coursesByCourseName {
+          nextToken
+        }
+        coursesByTerm {
+          nextToken
+        }
+        coursesByTermByCourseName {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      user {
+        id
+        lmsUserID
+        lmsType
+        name
+        email
+        phoneNumber
+        snsType
+        snsID
+        lastLoggedOut
+        status
+        accounts {
+          nextToken
+        }
+        enrollmentByCourse {
+          nextToken
+        }
+        enrollments {
+          nextToken
+        }
+        interventions {
+          nextToken
+        }
+        senderHistorys {
+          nextToken
+        }
+        recipientHistorys {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteAccountUser = /* GraphQL */ `
+  subscription OnDeleteAccountUser {
+    onDeleteAccountUser {
+      id
+      accountID
+      userID
+      lmsType
+      lmsAccountUserID
+      lmsAccountID
+      lmsUserID
+      account {
+        id
+        lmsAccountID
+        lmsType
+        name
+        status
+        users {
+          nextToken
+        }
+        courses {
+          nextToken
+        }
+        coursesByCourseName {
+          nextToken
+        }
+        coursesByTerm {
+          nextToken
+        }
+        coursesByTermByCourseName {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      user {
+        id
+        lmsUserID
+        lmsType
+        name
+        email
+        phoneNumber
+        snsType
+        snsID
+        lastLoggedOut
+        status
+        accounts {
+          nextToken
+        }
+        enrollmentByCourse {
+          nextToken
+        }
+        enrollments {
+          nextToken
+        }
+        interventions {
+          nextToken
+        }
+        senderHistorys {
+          nextToken
+        }
+        recipientHistorys {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const onCreateUser = /* GraphQL */ `
   subscription OnCreateUser {
     onCreateUser {
@@ -1379,6 +1655,20 @@ export const onCreateUser = /* GraphQL */ `
       snsID
       lastLoggedOut
       status
+      accounts {
+        items {
+          id
+          accountID
+          userID
+          lmsType
+          lmsAccountUserID
+          lmsAccountID
+          lmsUserID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       enrollmentByCourse {
         items {
           id
@@ -1418,15 +1708,16 @@ export const onCreateUser = /* GraphQL */ `
           courseID
           name
           description
-          condition
+          conditions
+          type
+          sendTime
+          recipientIDs
+          title
           content
           emailYN
           lmsYN
           smsYN
           snsYN
-          sendTime
-          reserveTime
-          cronTime
           status
           createdAt
           updatedAt
@@ -1485,6 +1776,20 @@ export const onUpdateUser = /* GraphQL */ `
       snsID
       lastLoggedOut
       status
+      accounts {
+        items {
+          id
+          accountID
+          userID
+          lmsType
+          lmsAccountUserID
+          lmsAccountID
+          lmsUserID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       enrollmentByCourse {
         items {
           id
@@ -1524,15 +1829,16 @@ export const onUpdateUser = /* GraphQL */ `
           courseID
           name
           description
-          condition
+          conditions
+          type
+          sendTime
+          recipientIDs
+          title
           content
           emailYN
           lmsYN
           smsYN
           snsYN
-          sendTime
-          reserveTime
-          cronTime
           status
           createdAt
           updatedAt
@@ -1591,6 +1897,20 @@ export const onDeleteUser = /* GraphQL */ `
       snsID
       lastLoggedOut
       status
+      accounts {
+        items {
+          id
+          accountID
+          userID
+          lmsType
+          lmsAccountUserID
+          lmsAccountID
+          lmsUserID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       enrollmentByCourse {
         items {
           id
@@ -1630,15 +1950,16 @@ export const onDeleteUser = /* GraphQL */ `
           courseID
           name
           description
-          condition
+          conditions
+          type
+          sendTime
+          recipientIDs
+          title
           content
           emailYN
           lmsYN
           smsYN
           snsYN
-          sendTime
-          reserveTime
-          cronTime
           status
           createdAt
           updatedAt
@@ -1692,15 +2013,16 @@ export const onCreateIntervention = /* GraphQL */ `
       courseID
       name
       description
-      condition
+      conditions
+      type
+      sendTime
+      recipientIDs
+      title
       content
       emailYN
       lmsYN
       smsYN
       snsYN
-      sendTime
-      reserveTime
-      cronTime
       status
       feeds {
         items {
@@ -1775,15 +2097,16 @@ export const onUpdateIntervention = /* GraphQL */ `
       courseID
       name
       description
-      condition
+      conditions
+      type
+      sendTime
+      recipientIDs
+      title
       content
       emailYN
       lmsYN
       smsYN
       snsYN
-      sendTime
-      reserveTime
-      cronTime
       status
       feeds {
         items {
@@ -1858,15 +2181,16 @@ export const onDeleteIntervention = /* GraphQL */ `
       courseID
       name
       description
-      condition
+      conditions
+      type
+      sendTime
+      recipientIDs
+      title
       content
       emailYN
       lmsYN
       smsYN
       snsYN
-      sendTime
-      reserveTime
-      cronTime
       status
       feeds {
         items {
